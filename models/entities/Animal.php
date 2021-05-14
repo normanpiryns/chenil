@@ -7,14 +7,18 @@ class Animal {
     private $sex;
     private $sterilized;
     private $birthDate;
+    private $person;
+    private $race;
 
-    public function __construct ($id, $name, $chip, $sex, $sterilized, $birthDate) {
+    public function __construct ($id, $name, $chip, $sex, $sterilized, $birthDate, $person = false, $race=false) {
         $this->id = $id;
         $this->name = $name;
         $this->chip = $chip;
         $this->sex = $sex;
         $this->sterilized = $sterilized;
         $this->birthDate = $birthDate;
+        $this->person = $person;
+        $this->race = $race;
     }
 
     public function __get ($prop) {
