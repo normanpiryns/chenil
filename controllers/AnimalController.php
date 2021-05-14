@@ -18,7 +18,7 @@ class AnimalController extends AbstractController {
     public function store ($id, $data) {
         $is_stored_in_db = $this->dao->store($data);
         if($is_stored_in_db) {
-            $animals = $this->dao->getAnimals();
+            $animals = $this->dao->fetchAll();
             include ('../views/animals/list.php');
         } else {
             echo "Error";
@@ -26,14 +26,14 @@ class AnimalController extends AbstractController {
         }
     }
 
-//    public function delete ($id, $data) {
-//        $this->dao->deleteAnimal($data);
-//        $animal = $this->dao->getAnimals();
-//        include ('../views/animals/list.php');
-//    }
+    public function delete ($id, $data) {
+        $this->dao->deleteAnimal($data);
+        $animal = $this->dao->getAnimals();
+        include ('../views/animals/list.php');
+    }
 
     public function show ($id) {
-        $animal = $this->dao->getAnimalById($id);
+        $animal = $this->dao->fetch($id);
         include ('../views/animals/one.php');
     }
 
