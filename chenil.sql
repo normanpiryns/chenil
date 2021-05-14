@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2021 at 06:39 PM
+-- Generation Time: May 14, 2021 at 06:33 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -31,8 +31,8 @@ USE `chenil`;
 
 CREATE TABLE `animals` (
   `id` int(11) NOT NULL,
+  `chip` varchar(50) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `race` varchar(100) NOT NULL,
   `sex` varchar(1) NOT NULL,
   `sterilized` tinyint(1) NOT NULL,
   `birthDate` date NOT NULL,
@@ -123,8 +123,8 @@ CREATE TABLE `vaccines` (
 --
 ALTER TABLE `animals`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `animal.fk_person` (`fk_person`),
-  ADD KEY `animal.fk_race` (`fk_race`);
+  ADD KEY `animal.fk_race` (`fk_race`),
+  ADD KEY `animal.fk_person` (`fk_person`);
 
 --
 -- Indexes for table `animals_vaccines`
@@ -173,6 +173,12 @@ ALTER TABLE `vaccines`
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `persons`
+--
+ALTER TABLE `persons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
