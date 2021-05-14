@@ -4,7 +4,7 @@ spl_autoload_register ( function ($class) {
         include '../Router.php';
     } else if ( strpos( $class, "Controller")) {
         include "../controllers/{$class}.php";
-    } else if ( strpos ( $class, "DAO")) {
+    } else if ( strpos ( $class, "Dao")) {
         include "../models/dao/{$class}.php";
     } else {
         include "../models/entities/{$class}.php";
