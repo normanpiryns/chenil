@@ -16,7 +16,16 @@ class RaceDao extends AbstractDao
 
     public function getRaceById($id)
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+            $statement->execute([
+                $id
+            ]);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $this->create($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function addRace($race)
@@ -75,4 +84,11 @@ class RaceDao extends AbstractDao
         }
     }
 
+    function create($result)
+    {
+        return new Race(
+            $result['id'],
+            $result['name']
+        );
+    }
 }
