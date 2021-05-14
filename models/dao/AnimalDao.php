@@ -11,7 +11,14 @@ class AnimalDao extends AbstractDao
 
     public function getAnimals()
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function getAnimalById($id)
@@ -73,6 +80,22 @@ class AnimalDao extends AbstractDao
         } catch(PDOException $e) {
             print $e->getMessage();
         }
+    }
+
+    function createAll ($results) {
+        $productList = array();
+        foreach ($results as $result) {
+            array_push($productList, $this->create($result));
+        }
+        return $productList;
+    }
+
+    function create ($result) {
+        return new Animal(
+            $result['id'],
+            $result['name'],
+            $result['race']
+        );
     }
 
 }
