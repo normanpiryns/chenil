@@ -1,7 +1,7 @@
 <?php
 
 abstract class AbstractController {
-    public function create () {
+    public function create ($id, $data) {
         var_dump('no create');
     }
 
@@ -9,7 +9,7 @@ abstract class AbstractController {
         var_dump('no edit');
     }
 
-    public function delete ($id, $data) {
+    public function delete ($id) {
         var_dump('no delete');
     }
 

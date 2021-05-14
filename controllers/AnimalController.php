@@ -26,14 +26,24 @@ class AnimalController extends AbstractController {
         }
     }
 
-    public function delete ($id, $data) {
-        $this->dao->deleteAnimal($data);
+    public function delete ($id) {
+        $this->dao->deleteAnimal($id);
         $animal = $this->dao->getAnimals();
         include ('../views/animals/list.php');
     }
 
+    public function create_form () {
+        include ('../views/animals/create_form.php');
+    }
+
+    public function create ($id, $data) {
+        var_dump("ON EST DANS LA CREATION");
+        var_dump($data);
+        //include ('../views/animals/create_form.php');
+    }
+
     public function show ($id) {
-        $animal = $this->dao->fetch($id);
+        $animal = $this->dao->getAnimalById($id);
         include ('../views/animals/one.php');
     }
 

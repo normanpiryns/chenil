@@ -107,14 +107,14 @@ class AnimalDao extends AbstractDao
 
     public function deleteAnimal($id)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();
@@ -137,7 +137,10 @@ class AnimalDao extends AbstractDao
         return new Animal(
             $result['id'],
             $result['name'],
-            $result['race']
+            $result['chip'],
+            $result['sex'],
+            $result['sterilized'],
+            $result['birthDate']
         );
     }
 
