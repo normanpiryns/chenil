@@ -12,7 +12,7 @@ class Router {
     public function __construct() {
         $this->get = $_GET;
         $this->post = $_POST;
-        $this->actions = ['create', 'edit', 'delete', 'show', 'update', 'store', 'index'];
+        $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'update', 'store', 'index'];
         $this->controllers = ['index' => 'AnimalController', 'animals' => 'AnimalController'];
         $this->request = array();
         $this->data = $this->parseURI($_SERVER['REQUEST_URI']);
@@ -74,6 +74,9 @@ class Router {
             $data = $this->post;
         }
 
+        var_dump("ON EST DANS LE RUN ");
+        var_dump($data);
+        var_dump($this->request['id']);
         //appeller la méthode du controller
         $this->controller_instance->{$this->request['action']}($this->request['id'], $data);
 
