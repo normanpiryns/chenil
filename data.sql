@@ -1,6 +1,17 @@
+-- Vaccines
+
+INSERT INTO vaccines(name, description) VALUES ("Maladie de Carré", "A faire à 4 et 7 ans. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+INSERT INTO vaccines(name, description) VALUES ("Parvovirose ", "A faire à 4 et 7 ans. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+INSERT INTO vaccines(name, description) VALUES ("Leptospirose ictérigène", "A faire à 2, 3, 4, 5, 7 et 8 ans. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+INSERT INTO vaccines(name, description) VALUES ("Hépatite contagieuse", "A faire à 4 et 7 ans. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+INSERT INTO vaccines(name, description) VALUES ("Toux des chenils", "A faire à 2, 3, 4, 5, 6, 7 et 8 ans. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+INSERT INTO vaccines(name, description) VALUES ("Rage", "Tous les 3 ans pour les pays de l''Union européenne. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias obcaecati quaerat quo voluptas voluptates?");
+
+
 -- Species
 
 INSERT INTO species(name) VALUES ("Canidée");
+
 
 -- Races
 
@@ -52,3 +63,7 @@ insert into animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race)
 insert into animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) values ('Roxanne', 'ff970d0e-10b6-43f8-9182-72e6df113d1c', 'F', false, '2020-07-10', 4, 1);
 insert into animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) values ('Auberta', '34a211fd-7ddb-4dea-a2e6-db52a7739597', 'F', true, '2020-07-04', 8, 1);
 insert into animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) values ('Casey', '24f3f0d9-9690-4f78-9591-49490636c5e8', 'F', false, '2020-07-10', 5, 1);
+
+
+-- Stays
+

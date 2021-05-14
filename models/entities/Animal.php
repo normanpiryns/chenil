@@ -8,9 +8,13 @@ class Animal {
     private $sterilized;
     private $birthDate;
 
-    public function __construct ($id, $name) {
+    public function __construct ($id, $name, $chip, $sex, $sterilized, $birthDate) {
         $this->id = $id;
         $this->name = $name;
+        $this->chip = $chip;
+        $this->sex = $sex;
+        $this->sterilized = $sterilized;
+        $this->birthDate = $birthDate;
     }
 
     public function __get ($prop) {
