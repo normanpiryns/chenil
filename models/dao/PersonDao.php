@@ -6,66 +6,104 @@ class PersonDao extends AbstractDao
     public function __construct()
     {
         // call parent constructor (AbstractDAO)
-        parent::__construct('person');
+        parent::__construct('persons');
     }
 
-    public function getPerson()
+    // fetch all persons
+    public function getPersons()
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function getPersonById($id)
     {
-        if(empty($id)){
-            return false;
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+            $statement->execute([
+                $id
+            ]);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $this->create($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
         }
-
-        
     }
 
-    public function createPerson($person)
+    // create person
+    public function store($person)
     {
-        if(empty($data['name']) || empty($data['image']) || empty($data['pokemon_id'])) {
+        if (empty($data['firstName']) ||
+            empty($data['lastName']) ||
+            empty($data['birthDate']) ||
+            empty($data['email']) ||
+            empty($data['telephone'])) {
+
             return false;
         }
 
         $person = $this->create(
             [
-                'id'=> 0,
-                'name'=> $data['name'],
-                'image' => $data['image'],
-                'pokemon_id'=> $data['pokemon_id'],
-                'user_id' => $data['user_id']
+                'id' => 0,
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'birthDate' => $data['birthDate'],
+                'email' => $data['email'],
+                'telephone' => $data['telephone']
             ]
         );
 
-        if ($pokemon) {
+        if ($person) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO {$this->table} (name, image, pokemon_id, user_id) VALUES (?, ?, ?, ?)"
+                    "INSERT INTO {$this->table} (firstName, lastName, birthDate, email, telephone) VALUES (?, ?, ?, ?, ?)"
                 );
                 $statement->execute([
-                    htmlspecialchars($pokemon->__get('name')),
-                    htmlspecialchars($pokemon->__get('image')),
-                    htmlspecialchars($pokemon->__get('pokemon_id')),
-                    htmlspecialchars($pokemon->__get('user'))
+                    htmlspecialchars($animal->__get('firstName')),
+                    htmlspecialchars($animal->__get('lastName')),
+                    htmlspecialchars($animal->__get('birthDate')),
+                    htmlspecialchars($animal->__get('email')),
+                    htmlspecialchars($animal->__get('telephone'))
                 ]);
                 return true;
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 print $e->getMessage();
                 return false;
             }
         }
     }
 
-    public function updateAnimal($animal)
+    public function updatePerson($person)
     {
+        if (empty($data['id'])) {
+            return false;
+        }
 
+        try {
+            $statement = $this->connection->prepare(
+                "UPDATE {$this->table} SET firstName = ?, lastName = ?, birthDate = ?,  email = ?, telephone = ? WHERE id = ?");
+            $statement->execute([
+                htmlspecialchars($data['firstName']),
+                htmlspecialchars($data['lastName']),
+                htmlspecialchars($data['birthDate']),
+                htmlspecialchars($data['email']),
+                htmlspecialchars($data['telelphone']),
+                htmlspecialchars($data['id'])
+            ]);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
-    public function deleteAnimal($id)
+    public function deletePerson($id)
     {
-        if(empty($data['id'])) {
+        if (empty($data['id'])) {
             return false;
         }
 
@@ -74,9 +112,32 @@ class PersonDao extends AbstractDao
             $statement->execute([
                 $data['id']
             ]);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             print $e->getMessage();
         }
+    }
+
+    // Instantiate a list of persons
+    function createAll($results)
+    {
+        $productList = array();
+        foreach ($results as $result) {
+            array_push($productList, $this->create($result));
+        }
+        return $productList;
+    }
+
+    //Instantiate a person
+    function create($result)
+    {
+        return new Person(
+            $result['id'],
+            $result['firstName'],
+            $result['lastName'],
+            $result['birthDate'],
+            $result['email'],
+            $result['telephone']
+        );
     }
 
 }
