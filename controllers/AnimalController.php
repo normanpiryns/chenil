@@ -14,4 +14,39 @@ class AnimalController extends AbstractController {
         include ('../views/footer.php');
     }
 
+    // Save animal
+    public function store ($id, $data) {
+        $is_stored_in_db = $this->dao->store($data);
+        if($is_stored_in_db) {
+            $animals = $this->dao->getAnimals();
+            include ('../views/animals/list.php');
+        } else {
+            echo "Error";
+            return http_response_code(401);
+        }
+    }
+
+//    public function delete ($id, $data) {
+//        $this->dao->deleteAnimal($data);
+//        $animal = $this->dao->getAnimals();
+//        include ('../views/animals/list.php');
+//    }
+
+    public function show ($id) {
+        $animal = $this->dao->getAnimalById($id);
+        include ('../views/animals/one.php');
+    }
+
+    public function edit ($id) {
+        $animal = $this->dao->getAnimalById($id);
+
+        // races
+        $raceDao = new RaceDao();
+        $races = $raceDao->getRaces();
+        // vaccines
+        $vaccineDao = new VaccineDao();
+        $vaccines = $vaccineDao->getVaccines();
+        include('../views/animals/form.php');
+    }
+
 }

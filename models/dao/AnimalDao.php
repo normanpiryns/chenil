@@ -9,93 +9,137 @@ class AnimalDao extends AbstractDao
         parent::__construct('animals');
     }
 
-    public function getAnimals()
-    {
-        try {
-            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $this->createAll($result);
-        } catch (PDOException $e) {
-            print $e->getMessage();
-        }
-    }
 
-    public function getAnimalById($id)
-    {
-
-    }
-
-    public function createAnimal($animal)
-    {
-        if(empty($data['name']) || empty($data['image']) || empty($data['pokemon_id'])) {
-            return false;
-        }
-
-        $pokemon = $this->create(
-            [
-                'id'=> 0,
-                'name'=> $data['name'],
-                'image' => $data['image'],
-                'pokemon_id'=> $data['pokemon_id'],
-                'user_id' => $data['user_id']
-            ]
-        );
-
-        if ($pokemon) {
-            try {
-                $statement = $this->connection->prepare(
-                    "INSERT INTO {$this->table} (name, image, pokemon_id, user_id) VALUES (?, ?, ?, ?)"
-                );
-                $statement->execute([
-                    htmlspecialchars($pokemon->__get('name')),
-                    htmlspecialchars($pokemon->__get('image')),
-                    htmlspecialchars($pokemon->__get('pokemon_id')),
-                    htmlspecialchars($pokemon->__get('user'))
-                ]);
-                return true;
-            } catch(PDOException $e) {
-                print $e->getMessage();
-                return false;
-            }
-        }
-    }
-
-    public function updateAnimal($animal)
-    {
-
-    }
-
-    public function deleteAnimal($id)
-    {
-        if(empty($data['id'])) {
-            return false;
-        }
-
-        try {
-            $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
-            $statement->execute([
-                $data['id']
-            ]);
-        } catch(PDOException $e) {
-            print $e->getMessage();
-        }
-    }
-
-    function createAll ($results) {
-        $productList = array();
-        foreach ($results as $result) {
-            array_push($productList, $this->create($result));
-        }
-        return $productList;
-    }
-
-    function create ($result) {
-        return new Animal(
-            $result['id'],
-            $result['name'],
-            $result['race']
-        );
-    }
+//    // fetch all animals
+//    public function getAnimals()
+//    {
+//        try {
+//            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+//            $statement->execute();
+//            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+//            return $this->createAll($result);
+//        } catch (PDOException $e) {
+//            print $e->getMessage();
+//        }
+//    }
+//
+//    public function getAnimalById($id)
+//    {
+//        try {
+//            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+//            $statement->execute([
+//                $id
+//            ]);
+//            $result = $statement->fetch(PDO::FETCH_ASSOC);
+//            return $this->create($result);
+//        } catch (PDOException $e) {
+//            print $e->getMessage();
+//        }
+//    }
+//
+//    // create animal
+//    public function store($animal)
+//    {
+//        if (empty($data['name']) ||
+//            empty($data['sex']) ||
+//            empty($data['sterilized']) ||
+//            empty($data['birthDate']) ||
+//            empty($data['fk_person']) ||
+//            empty($data['fk_race'])) {
+//
+//            return false;
+//        }
+//
+//        $animal = $this->create(
+//            [
+//                'id' => 0,
+//                'name' => $data['name'],
+//                'sex' => $data['sex'],
+//                'sterilized' => $data['sterilized'],
+//                'birthDate' => $data['birthDate'],
+//                'fk_person' => $data['fk_person'],
+//                'fk_race' => $data['fk_race']
+//            ]
+//        );
+//
+//        if ($animal) {
+//            try {
+//                $statement = $this->connection->prepare(
+//                    "INSERT INTO {$this->table} (name, sex, sterilized, birthDate, fk_person, fk_race) VALUES (?, ?, ?, ?, ?, ?)"
+//                );
+//                $statement->execute([
+//                    htmlspecialchars($animal->__get('name')),
+//                    htmlspecialchars($animal->__get('sex')),
+//                    htmlspecialchars($animal->__get('sterilized')),
+//                    htmlspecialchars($animal->__get('birthDate')),
+//                    htmlspecialchars($animal->__get('fk_person')),
+//                    htmlspecialchars($animal->__get('fk_race'))
+//                ]);
+//                return true;
+//            } catch (PDOException $e) {
+//                print $e->getMessage();
+//                return false;
+//            }
+//        }
+//    }
+//
+//    public function updateAnimal($animal)
+//    {
+//        if (empty($data['id'])) {
+//            return false;
+//        }
+//
+//        try {
+//            $statement = $this->connection->prepare(
+//                "UPDATE {$this->table} SET name = ?, sex = ?, sterilized = ?, birthDate = ?, fk_person = ?, fk_race = ? WHERE id = ?");
+//            $statement->execute([
+//                htmlspecialchars($data['name']),
+//                htmlspecialchars($data['sex']),
+//                htmlspecialchars($data['sterilized']),
+//                htmlspecialchars($data['birthDate']),
+//                htmlspecialchars($data['fk_person']),
+//                htmlspecialchars($data['fk_race']),
+//                htmlspecialchars($data['id'])
+//            ]);
+//        } catch (PDOException $e) {
+//            print $e->getMessage();
+//        }
+//    }
+//
+//    public function deleteAnimal($id)
+//    {
+//        if (empty($data['id'])) {
+//            return false;
+//        }
+//
+//        try {
+//            $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
+//            $statement->execute([
+//                $data['id']
+//            ]);
+//        } catch (PDOException $e) {
+//            print $e->getMessage();
+//        }
+//    }
+//
+//    // Instantiate a list of animals
+//    function createAll($results)
+//    {
+//        $productList = array();
+//        foreach ($results as $result) {
+//            array_push($productList, $this->create($result));
+//        }
+//        return $productList;
+//    }
+//
+//    //Instantiate a animals
+//    function create($result)
+//    {
+//        return new Animal(
+//            $result['id'],
+//            $result['name'],
+//            $result['race']
+//        );
+//    }
 
 }
