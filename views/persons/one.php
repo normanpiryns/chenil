@@ -4,7 +4,7 @@
 
 
 
-<form action="/person/update/<?= $person->id ?>" method="POST">
+<form action="/persons/update/<?= $person->id ?>" method="POST">
 
     <label for="firstName">Prénom</label>
     <input type="text" name="firstName" id="firstName" value="<?= $person->firstName ?>">

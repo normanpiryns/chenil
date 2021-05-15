@@ -37,14 +37,14 @@ class PersonDao extends AbstractDao
     }
 
     // create person
-    public function store($person)
+    public function store($data)
     {
         if (empty($data['firstName']) ||
             empty($data['lastName']) ||
             empty($data['birthDate']) ||
             empty($data['email']) ||
             empty($data['telephone'])) {
-
+            var_dump($data);
             return false;
         }
 
@@ -59,17 +59,19 @@ class PersonDao extends AbstractDao
             ]
         );
 
+        var_dump($person);
+
         if ($person) {
             try {
                 $statement = $this->connection->prepare(
                     "INSERT INTO {$this->table} (firstName, lastName, birthDate, email, telephone) VALUES (?, ?, ?, ?, ?)"
                 );
                 $statement->execute([
-                    htmlspecialchars($animal->__get('firstName')),
-                    htmlspecialchars($animal->__get('lastName')),
-                    htmlspecialchars($animal->__get('birthDate')),
-                    htmlspecialchars($animal->__get('email')),
-                    htmlspecialchars($animal->__get('telephone'))
+                    htmlspecialchars($person->__get('firstName')),
+                    htmlspecialchars($person->__get('lastName')),
+                    htmlspecialchars($person->__get('birthDate')),
+                    htmlspecialchars($person->__get('email')),
+                    htmlspecialchars($person->__get('telephone'))
                 ]);
                 return true;
             } catch (PDOException $e) {
@@ -79,9 +81,9 @@ class PersonDao extends AbstractDao
         }
     }
 
-    public function updatePerson($person)
+    public function updatePerson($id, $data)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
@@ -93,8 +95,8 @@ class PersonDao extends AbstractDao
                 htmlspecialchars($data['lastName']),
                 htmlspecialchars($data['birthDate']),
                 htmlspecialchars($data['email']),
-                htmlspecialchars($data['telelphone']),
-                htmlspecialchars($data['id'])
+                htmlspecialchars($data['telephone']),
+                htmlspecialchars($id)
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();
@@ -103,14 +105,14 @@ class PersonDao extends AbstractDao
 
     public function deletePerson($id)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();

@@ -13,26 +13,25 @@ class PersonController extends AbstractController {
         include ('../views/footer.php');
     }
 
-    // Save person
-    public function store ($id, $data) {
-        $is_stored_in_db = $this->dao->store($data);
-        if($is_stored_in_db) {
-            $animals = $this->dao->fetchAll();
-            include ('../views/persons/list.php');
-        } else {
-            echo "Error";
-            return http_response_code(401);
-        }
+    public function create ($id, $data) {
+        $this->dao->store($data);
+        $this->index();
     }
 
     public function delete ($id) {
+        
         $this->dao->deletePerson($id);
-        $person = $this->dao->getPerson();
-        include ('../views/persons/list.php');
+        $person = $this->dao->getPersons();
+        $this->index();
+    }
+
+    public function update($id, $data) {
+        $this->dao->updatePerson($id, $data);
+        $this->index();
     }
 
     public function show ($id) {
-        $person = $this->dao->fetch($id);
+        $person = $this->dao->getPersonById($id);
         include ('../views/persons/one.php');
     }
 
