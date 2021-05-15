@@ -6,12 +6,12 @@
 
         <div class="form-group">
             <label for="firstName">First name</label>
-            <input class="form-control" id="FirstName" type="text" name="FirstName"/>
+            <input class="form-control" id="firstName" type="text" name="firstName"/>
         </div>
 
         <div class="form-group">
             <label for="lastName">Last name</label>
-            <input class="form-control" id="firstName" type="text" name="lastName"/>
+            <input class="form-control" id="lastName" type="text" name="lastName"/>
         </div>
 
         <div class="form-group">

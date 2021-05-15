@@ -2,7 +2,7 @@
 
     <h2>Enregistrer un nouvel animal</h2>
 
-    <form action="/animal/create" method="POST">
+    <form action="/animals/create" method="POST">
         <div>
             <label for="name">Nom</label>
             <input id="name" type="text" name="name"/>
