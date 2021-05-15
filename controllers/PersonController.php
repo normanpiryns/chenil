@@ -6,11 +6,10 @@ class PersonController extends AbstractController {
     }
 
     public function index () {
-        $animals = $this->dao->getPersons();
+        $persons = $this->dao->getPersons();
 
         include ('../views/header.php');
         include ('../views/persons/list.php');
-        include ('../views/persons/search.php');
         include ('../views/footer.php');
     }
 
@@ -26,8 +25,8 @@ class PersonController extends AbstractController {
         }
     }
 
-    public function delete ($id, $data) {
-        $this->dao->deletePerson($data);
+    public function delete ($id) {
+        $this->dao->deletePerson($id);
         $person = $this->dao->getPerson();
         include ('../views/persons/list.php');
     }
@@ -42,4 +41,7 @@ class PersonController extends AbstractController {
         include('../views/persons/form.php');
     }
 
+    public function create_form () {
+        include ('../views/persons/create_form.php');
+    }
 }

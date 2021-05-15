@@ -14,9 +14,9 @@ class Router {
         $this->post = $_POST;
         $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'update', 'store', 'index'];
         $this->controllers = [
-            'index' => 'AnimalController', 
+            'index' => 'MainController', 
             'animals' => 'AnimalController',
-            'persons' => 'Personcontroller',
+            'persons' => 'PersonController',
             'species' => 'SpeciesController',
             'stays' => 'StayController'];
         $this->request = array();
@@ -71,17 +71,17 @@ class Router {
     }
 
     private function run() {
-        var_dump("BONJOUR DU ROUTER");
-        var_dump($this->request['id']);
+        // var_dump("BONJOUR DU ROUTER");
+        // var_dump($this->request['id']);
         //instancier 1 controller
         $this->controller_instance = new $this->request['controller'];
 
         $data = $this->get;
         if($this->request['method'] == 'post')  {
-            var_dump("ON FAIT UN POST");
+            // var_dump("ON FAIT UN POST");
             $data = $this->post;
         }
-        var_dump($this->request['action']);
+        // var_dump($this->request['action']);
         //appeller la méthode du controller
         $this->controller_instance->{$this->request['action']}($this->request['id'], $data);
     }
