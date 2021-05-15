@@ -10,12 +10,28 @@ class VaccineDao extends AbstractDao {
 
     public function getVaccines()
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function getVaccineById($id)
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+            $statement->execute([
+                $id
+            ]);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $this->create($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function addVaccine($vaccine)
@@ -53,24 +69,58 @@ class VaccineDao extends AbstractDao {
         }
     }
 
-    public function updateVaccine($vaccine)
+    public function updateVaccine($id, $data)
     {
+        // todo pouvoir changer l'espèce'
+        if (empty($id)) {
+            return false;
+        }
 
+        try {
+            $statement = $this->connection->prepare(
+                "UPDATE {$this->table} SET name = ?, description = ? WHERE id = ?");
+            $statement->execute([
+                htmlspecialchars($data['name']),
+                htmlspecialchars($data['description']),
+                htmlspecialchars($id)
+            ]);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function deleteVaccine($id)
     {
-        if(empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             print $e->getMessage();
         }
+    }
+
+
+    function create($result)
+    {
+        return new Vaccine(
+            $result['id'],
+            $result['name']
+        );
+    }
+
+    // Instantiate a list of animals
+    function createAll($results)
+    {
+        $productList = array();
+        foreach ($results as $result) {
+            array_push($productList, $this->create($result));
+        }
+        return $productList;
     }
 }

@@ -11,7 +11,14 @@ class RaceDao extends AbstractDao
 
     public function getRaces()
     {
-
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function getRaceById($id)
@@ -63,23 +70,37 @@ class RaceDao extends AbstractDao
         }
     }
 
-    public function updateRace($race)
+    public function updateRace($id, $data)
     {
+        // todo pouvoir changer l'espèce'
+        if (empty($id)) {
+            return false;
+        }
 
+        try {
+            $statement = $this->connection->prepare(
+                "UPDATE {$this->table} SET name = ? WHERE id = ?");
+            $statement->execute([
+                htmlspecialchars($data['name']),
+                htmlspecialchars($id)
+            ]);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 
     public function deleteRace($id)
     {
-        if(empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             print $e->getMessage();
         }
     }
@@ -91,4 +112,15 @@ class RaceDao extends AbstractDao
             $result['name']
         );
     }
+
+    // Instantiate a list of animals
+    function createAll($results)
+    {
+        $productList = array();
+        foreach ($results as $result) {
+            array_push($productList, $this->create($result));
+        }
+        return $productList;
+    }
+
 }

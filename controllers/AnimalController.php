@@ -47,18 +47,12 @@ class AnimalController extends AbstractController {
         include ('../views/animals/one.php');
     }
 
-
     public function update($id, $data) {
         var_dump("VOICI LES DONNEES");
         var_dump($id);
         var_dump($data);
         $this->dao->updateAnimal($id, $data);
     }
-
-
-
-
-
 
     public function edit ($id) {
         $animal = $this->dao->getAnimalById($id);

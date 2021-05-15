@@ -3,17 +3,9 @@
 
 <h2>Information sur l'animal</h2>
 
-<!--<p>Nom : --><?//= $animal->name ?><!--</p>-->
-<!--<p>Sexe : --><?//= $animal->sex ?><!--</p>-->
-<!--<p>Date de naissance : --><?//= $animal->birthDate ?><!--</p>-->
-<!--<p>Race : --><?//= $animal->race ?><!--</p>-->
-<!--<p>Est stérilisé : --><?//= $animal->sterilized ?><!--</p>-->
-<!--<p>Numéro de puce : --><?//= $animal->chip ?><!--</p>-->
 
 
-
-
-<form action="/animal/update/<?= $animal->id ?>" method="POST">
+<form action="/xxx/update/<?= $animal->id ?>" method="POST">
 
     <label for="name">Nom</label>
     <input type="text" name="name" id="name" value="<?= $animal->name ?>">

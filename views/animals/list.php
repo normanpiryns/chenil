@@ -29,6 +29,8 @@
 
 <?php endif; ?>
 
-<h2>COucou</h2>
-
 <a href="/animals/create_form">Ajouter un nouvel animal</a>
+
+<h2>Navigation</h2>
+
+<a href="/races/showAll">Race</a>

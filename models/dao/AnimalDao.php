@@ -129,7 +129,6 @@ class AnimalDao extends AbstractDao
 
     public function updateAnimal($id, $data)
     {
-
         if (empty($id)) {
             return false;
         }

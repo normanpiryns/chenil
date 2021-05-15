@@ -12,8 +12,8 @@ class Router {
     public function __construct() {
         $this->get = $_GET;
         $this->post = $_POST;
-        $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'update', 'store', 'index'];
-        $this->controllers = ['index' => 'AnimalController', 'animals' => 'AnimalController'];
+        $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'showAll', 'update', 'store', 'index'];
+        $this->controllers = ['index' => 'AnimalController', 'animals' => 'AnimalController', 'races' => 'RaceController'];
         $this->request = array();
         $this->data = $this->parseURI($_SERVER['REQUEST_URI']);
         $this->dispatch();
@@ -68,6 +68,7 @@ class Router {
     private function run() {
         var_dump("BONJOUR DU ROUTER");
         var_dump($this->request['id']);
+        var_dump($this->request['controller']);
         //instancier 1 controller
         $this->controller_instance = new $this->request['controller'];
 
