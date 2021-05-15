@@ -16,8 +16,8 @@
                 <td><?= $vaccine->__get('name'); ?></td>
                 <td><?= $vaccine->__get('description'); ?></td>
                 <td>
-                    <button class="btn btn-warning btn-sm"><a href="/races/show/<?= $vaccine->__get('id'); ?>">Modifier</a></button>
-                    <button class="btn btn-warning btn-sm"><a href="/races/delete/<?= $vaccine->__get('id'); ?>">Supprimer</a></button>
+                    <button><a href="/vaccines/show/<?= $vaccine->__get('id'); ?>">Modifier</a></button>
+                    <button><a href="/vaccines/delete/<?= $vaccine->__get('id'); ?>">Supprimer</a></button>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -26,4 +26,4 @@
 
 <?php endif; ?>
 
-<a href="/races/create_form">Ajouter une nouvelle race</a>
+<a href="/races/create_form">Ajouter un nouveau vaccin</a>

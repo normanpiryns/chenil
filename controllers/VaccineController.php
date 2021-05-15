@@ -7,7 +7,7 @@ class VaccineController extends AbstractController {
     }
 
     public function showAll () {
-        $races = $this->dao->getVaccines();
+        $vaccines = $this->dao->getVaccines();
         include ('../views/vaccines/list.php');
     }
 
@@ -15,23 +15,29 @@ class VaccineController extends AbstractController {
         include ('../views/vaccines/create_form.php');
     }
 
+    /**
+     * Appelle la méthode du Dao permettant l'enregistrement d'un vaccin dans la DB
+     * @param $id
+     * @param $data
+     */
+    public function create ($id, $data) {
+        $this->dao->addVaccine($data);
+        $this->showAll();
+    }
 
     public function show ($id) {
-        $race = $this->dao->getRaceById($id);
+        $vaccine = $this->dao->getVaccineById($id);
         include ('../views/vaccines/one.php');
     }
 
     public function update($id, $data) {
-        var_dump("ON EST DANS LA RACE");
-        var_dump($id);
-        var_dump($data);
         $this->dao->updateVaccine($id, $data);
+        $this->showAll();
     }
 
     public function delete ($id) {
         $this->dao->deleteVaccine($id);
-        $vaccines = $this->dao->getVaccines();
-        include ('../views/vaccines/list.php');
+        $this->showAll();
     }
 
 }

@@ -34,3 +34,4 @@
 <h2>Navigation</h2>
 
 <a href="/races/showAll">Race</a>
+<a href="/vaccines/showAll">Vaccins</a>

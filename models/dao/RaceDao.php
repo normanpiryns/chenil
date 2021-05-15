@@ -35,35 +35,31 @@ class RaceDao extends AbstractDao
         }
     }
 
-    public function addRace($race)
+    public function addRace($data)
     {
-        if(empty($data['name']) || empty($data['image']) || empty($data['pokemon_id'])) {
+        if (empty($data['name']) || empty($data['fk_species'])) {
             return false;
         }
 
-        $pokemon = $this->create(
+        $race = $this->create(
             [
-                'id'=> 0,
-                'name'=> $data['name'],
-                'image' => $data['image'],
-                'pokemon_id'=> $data['pokemon_id'],
-                'user_id' => $data['user_id']
+                'id' => 0,
+                'name' => $data['name'],
+                'fk_species' => $data['fk_species'],
             ]
         );
 
-        if ($pokemon) {
+        if ($race) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO {$this->table} (name, image, pokemon_id, user_id) VALUES (?, ?, ?, ?)"
+                    "INSERT INTO {$this->table} (name, fk_species) VALUES (?, ?)"
                 );
                 $statement->execute([
-                    htmlspecialchars($pokemon->__get('name')),
-                    htmlspecialchars($pokemon->__get('image')),
-                    htmlspecialchars($pokemon->__get('pokemon_id')),
-                    htmlspecialchars($pokemon->__get('user'))
+                    htmlspecialchars($race->__get('name')),
+                    htmlspecialchars($race->__get('specie')->id),
                 ]);
                 return true;
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 print $e->getMessage();
                 return false;
             }
@@ -107,9 +103,12 @@ class RaceDao extends AbstractDao
 
     function create($result)
     {
+        $specie = new Species($result['fk_species'], null);
+
         return new Race(
             $result['id'],
-            $result['name']
+            $result['name'],
+            $specie
         );
     }
 

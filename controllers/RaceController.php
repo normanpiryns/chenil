@@ -12,9 +12,20 @@ class RaceController extends AbstractController {
     }
 
     public function create_form () {
+        $specieDao = new SpeciesDao();
+        $species = $specieDao->getSpecies();
         include ('../views/races/create_form.php');
     }
 
+    /**
+     * Appelle la méthode du Dao permettant l'enregistrement d'une race dans la DB
+     * @param $id
+     * @param $data
+     */
+    public function create ($id, $data) {
+        $this->dao->addRace($data);
+        $this->showAll();
+    }
 
     public function show ($id) {
         $race = $this->dao->getRaceById($id);
@@ -22,16 +33,13 @@ class RaceController extends AbstractController {
     }
 
     public function update($id, $data) {
-        var_dump("ON EST DANS LA RACE");
-        var_dump($id);
-        var_dump($data);
         $this->dao->updateRace($id, $data);
+        $this->showAll();
     }
 
     public function delete ($id) {
         $this->dao->deleteRace($id);
-        $races = $this->dao->getRaces();
-        include ('../views/races/list.php');
+        $this->showAll();
     }
 
 }

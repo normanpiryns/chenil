@@ -10,8 +10,12 @@
         </div>
 
         <div>
-            <label for="fk_species">Nom de l'espèce</label>
-            <input id="fk_species" type="text" name="fk_species"/>
+            <label for="fk_species">Nom de son espèce</label>
+            <select name="fk_species" id="fk_species">
+                <?php foreach ($species as $specie): ?>
+                    <option value="<?= $specie->__get('id'); ?>"><?= $specie->__get('name'); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <input type="submit" value="Enregistrer"/>

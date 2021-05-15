@@ -34,32 +34,28 @@ class VaccineDao extends AbstractDao {
         }
     }
 
-    public function addVaccine($vaccine)
+    public function addVaccine($data)
     {
-        if(empty($data['name']) || empty($data['image']) || empty($data['pokemon_id'])) {
+        if(empty($data['name']) || empty($data['description'])) {
             return false;
         }
 
-        $pokemon = $this->create(
+        $vaccine = $this->create(
             [
                 'id'=> 0,
                 'name'=> $data['name'],
-                'image' => $data['image'],
-                'pokemon_id'=> $data['pokemon_id'],
-                'user_id' => $data['user_id']
+                'description' => $data['description']
             ]
         );
 
-        if ($pokemon) {
+        if ($vaccine) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO {$this->table} (name, image, pokemon_id, user_id) VALUES (?, ?, ?, ?)"
+                    "INSERT INTO {$this->table} (name, description) VALUES (?, ?)"
                 );
                 $statement->execute([
-                    htmlspecialchars($pokemon->__get('name')),
-                    htmlspecialchars($pokemon->__get('image')),
-                    htmlspecialchars($pokemon->__get('pokemon_id')),
-                    htmlspecialchars($pokemon->__get('user'))
+                    htmlspecialchars($vaccine->__get('name')),
+                    htmlspecialchars($vaccine->__get('description'))
                 ]);
                 return true;
             } catch(PDOException $e) {
@@ -71,7 +67,6 @@ class VaccineDao extends AbstractDao {
 
     public function updateVaccine($id, $data)
     {
-        // todo pouvoir changer l'espèce'
         if (empty($id)) {
             return false;
         }
@@ -110,7 +105,8 @@ class VaccineDao extends AbstractDao {
     {
         return new Vaccine(
             $result['id'],
-            $result['name']
+            $result['name'],
+            $result['description']
         );
     }
 
