@@ -1,35 +1,43 @@
-<div class="content">
+<div>
 
-    <h2>S'inscrire au Staff Day</h2>
+    <h2>Enregistrer un nouvel animal</h2>
 
-    <form  action="/animal/create" method="post">
-
-        <div class="form-group">
-            <label for="FirstName">Nom</label>
-            <input class="form-control" id="FirstName" type="text" name="FirstName"/>
+    <form action="/animal/create" method="POST">
+        <div>
+            <label for="name">Nom</label>
+            <input id="name" type="text" name="name"/>
         </div>
 
-        <div class="form-group">
-            <label for="LastName">Sexe</label>
-            <input class="form-control" id="LastName" type="text" name="LastName"/>
+        <div>
+            <label for="sex">Sexe</label>
+            <input id="sex" type="text" name="sex"/>
         </div>
 
-        <div class="form-group">
-            <label for="Mail">Race</label>
-            <input class="form-control" id="Mail" type="text" name="Mail">
+        <div>
+            <label for="birthDate">Date de naissance </label>
+            <input id="birthDate" type="text" name="birthDate">
         </div>
 
-        <div class="form-group">
-            <label for="PostalCode">Est stérilisé</label>
-            <input class="form-control" id="PostalCode" type="text" name="PostalCode">
+        <div>
+            <label for="fk_race">Race</label>
+            <select name="fk_race" id="fk_race">
+                <?php foreach ($races as $race): ?>
+                    <option value="<?= $race->__get('id'); ?>"><?= $race->__get('name'); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label for="Department">Date de naissance </label>
-            <input class="form-control" id="Department" type="text" name="Department">
+        <div>
+            <label for="sterilized">Est stérilisé</label>
+            <input id="sterilized" type="text" name="sterilized">
         </div>
 
-        <input class="btn btn-success mt-5" type="submit" value="Enregistrer" />
+        <div>
+            <label for="chip">Numéro de puce </label>
+            <input id="chip" type="text" name="chip">
+        </div>
+
+        <input type="submit" value="Enregistrer"/>
     </form>
 
 </div>

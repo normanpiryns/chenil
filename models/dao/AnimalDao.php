@@ -82,11 +82,21 @@ class AnimalDao extends AbstractDao
     }
 
     // create animal
-    public function store($animal)
+
+    /**
+     * Enregistre un animal dans la DB
+     * @param $animal
+     * @return bool
+     */
+    public function store($data)
     {
+        // todo on ne doit enregistrer l'animal que pour une personne
+        $data['fk_person'] = '1';
+
         if (empty($data['name']) ||
+            empty($data['chip']) ||
             empty($data['sex']) ||
-            empty($data['sterilized']) ||
+            (empty($data['sterilized']) && $data['sterilized'] != "0") || // empty return false if "0" so we need to verifiy this
             empty($data['birthDate']) ||
             empty($data['fk_person']) ||
             empty($data['fk_race'])) {
@@ -98,6 +108,7 @@ class AnimalDao extends AbstractDao
             [
                 'id' => 0,
                 'name' => $data['name'],
+                'chip' => $data['chip'],
                 'sex' => $data['sex'],
                 'sterilized' => $data['sterilized'],
                 'birthDate' => $data['birthDate'],
@@ -109,15 +120,16 @@ class AnimalDao extends AbstractDao
         if ($animal) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO {$this->table} (name, sex, sterilized, birthDate, fk_person, fk_race) VALUES (?, ?, ?, ?, ?, ?)"
+                    "INSERT INTO {$this->table} (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES (?, ?, ?, ?, ?, ?, ?)"
                 );
                 $statement->execute([
                     htmlspecialchars($animal->__get('name')),
+                    htmlspecialchars($animal->__get('chip')),
                     htmlspecialchars($animal->__get('sex')),
                     htmlspecialchars($animal->__get('sterilized')),
                     htmlspecialchars($animal->__get('birthDate')),
-                    htmlspecialchars($animal->__get('fk_person')),
-                    htmlspecialchars($animal->__get('fk_race'))
+                    htmlspecialchars($animal->__get('person')->id),
+                    htmlspecialchars($animal->__get('race')->id)
                 ]);
                 return true;
             } catch (PDOException $e) {
@@ -129,7 +141,6 @@ class AnimalDao extends AbstractDao
 
     public function updateAnimal($id, $data)
     {
-
         if (empty($id)) {
             return false;
         }
@@ -180,13 +191,18 @@ class AnimalDao extends AbstractDao
     // Instantiate a animals
     function create($result)
     {
+        $person = new Person($result['fk_person'], null, null, null, null, null);
+        $race = new Race($result['fk_race'], null);
+
         return new Animal(
             $result['id'],
             $result['name'],
             $result['chip'],
             $result['sex'],
             $result['sterilized'],
-            $result['birthDate']
+            $result['birthDate'],
+            $person,
+            $race
         );
     }
 
@@ -203,10 +219,9 @@ class AnimalDao extends AbstractDao
 
         // get race
         $raceId = $result['fk_race']; // race id
-
         $raceDao = new RaceDao();
         $race = $raceDao->getRaceById($raceId); // get animal race
-        var_dump($race);
+
         return new Animal(
             $result['id'],
             $result['name'],
@@ -217,7 +232,6 @@ class AnimalDao extends AbstractDao
             $person,
             $race
         );
-
     }
 
 }

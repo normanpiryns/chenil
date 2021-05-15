@@ -1,25 +1,27 @@
-<?php if (!empty($products)): ?>
-    <section>
-        <table>
-            <?php foreach ($products as $product): ?>
-                <tr>
-                    <td><?= $product->__get('id'); ?></td>
-                    <td><?= $product->__get('name'); ?></td>
-                    <td><?= $product->__get('price'); ?></td>
-                    <td>
-                        <form action="" method="get">
-                            <input type="hidden" name="id" value="<?= $product->__get('id'); ?>">
-                            <input type="submit" value="Modifier" name="getproduct">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $product->__get('id'); ?>">
-                            <input type="submit" value="Supprimer" name="deleteproduct">
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </section>
+<?php if (!empty($races)): ?>
+
+    <h2>Liste des races</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($races as $race): ?>
+            <tr>
+                <td><?= $race->__get('name'); ?></td>
+                <td>
+                    <button class="btn btn-warning btn-sm"><a href="/races/show/<?= $race->__get('id'); ?>">Modifier</a></button>
+                    <button class="btn btn-warning btn-sm"><a href="/races/delete/<?= $race->__get('id'); ?>">Supprimer</a></button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
 <?php endif; ?>
+
+<a href="/races/create_form">Ajouter une nouvelle race</a>
