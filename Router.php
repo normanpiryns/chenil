@@ -20,7 +20,7 @@ class Router {
             'persons' => 'PersonController',
             'species' => 'SpeciesController',
             'races' => 'RaceController',
-            'vaccines' => 'VaccineController'
+            'vaccines' => 'VaccineController',
             'stays' => 'StayController'];
         
         $this->request = array();
