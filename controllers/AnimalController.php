@@ -58,24 +58,7 @@ class AnimalController extends AbstractController {
      */
     public function delete ($id) {
         $this->dao->deleteAnimal($id);
-        $animal = $this->dao->getAnimals();
-        include ('../views/animals/list.php');
+        $this->index();
     }
-
-
-
-
-
-//    public function edit ($id) {
-//        $animal = $this->dao->getAnimalById($id);
-//
-//        // races
-//        $raceDao = new RaceDao();
-//        $races = $raceDao->getRaces();
-//        // vaccines
-//        $vaccineDao = new VaccineDao();
-//        $vaccines = $vaccineDao->getVaccines();
-//        include('../views/animals/form.php');
-//    }
 
 }

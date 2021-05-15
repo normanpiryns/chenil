@@ -6,7 +6,7 @@ class RaceController extends AbstractController {
         $this->dao = new RaceDao();
     }
 
-    public function showAll () {
+    public function index () {
         $races = $this->dao->getRaces();
         include ('../views/races/list.php');
     }
@@ -24,7 +24,7 @@ class RaceController extends AbstractController {
      */
     public function create ($id, $data) {
         $this->dao->addRace($data);
-        $this->showAll();
+        $this->index();
     }
 
     public function show ($id) {
@@ -34,12 +34,12 @@ class RaceController extends AbstractController {
 
     public function update($id, $data) {
         $this->dao->updateRace($id, $data);
-        $this->showAll();
+        $this->index();
     }
 
     public function delete ($id) {
         $this->dao->deleteRace($id);
-        $this->showAll();
+        $this->index();
     }
 
 }

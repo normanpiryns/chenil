@@ -6,7 +6,7 @@ class VaccineController extends AbstractController {
         $this->dao = new VaccineDao();
     }
 
-    public function showAll () {
+    public function index () {
         $vaccines = $this->dao->getVaccines();
         include ('../views/vaccines/list.php');
     }
@@ -22,7 +22,7 @@ class VaccineController extends AbstractController {
      */
     public function create ($id, $data) {
         $this->dao->addVaccine($data);
-        $this->showAll();
+        $this->index();
     }
 
     public function show ($id) {
@@ -32,12 +32,12 @@ class VaccineController extends AbstractController {
 
     public function update($id, $data) {
         $this->dao->updateVaccine($id, $data);
-        $this->showAll();
+        $this->index();
     }
 
     public function delete ($id) {
         $this->dao->deleteVaccine($id);
-        $this->showAll();
+        $this->index();
     }
 
 }
