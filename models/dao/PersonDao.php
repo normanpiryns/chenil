@@ -81,6 +81,24 @@ class PersonDao extends AbstractDao
         }
     }
 
+    /**
+     * Retourne une liste de personne qui porte le nom entré en paramètre
+     * @return array
+     */
+    public function getPersonsByName($data)
+    {
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE firstName = ?");
+            $statement->execute([
+                $data['name']
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
     public function updatePerson($id, $data)
     {
         if (empty($id)) {

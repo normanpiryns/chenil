@@ -39,8 +39,18 @@
 
                 <div class="group">
                     <label class="label" for="sterilized">Stérilisé</label>
-                    <input id="sterilized" type="text" name="sterilized" value="<?= $animal->sterilized ?>">
+                    <select name="sterilized" id="sterilized">
+                        <?php if ($animal->sterilized) { ?>
+                        <option value="1" selected="selected">Oui</option>
+                            <option value="0">Non</option>
+                        <?php } ?>
+                        <?php if (!$animal->sterilized) { ?>
+                            <option value="0" selected="selected">Non</option>
+                            <option value="1">Oui</option>
+                        <?php } ?>
+                    </select>
                 </div>
+
 
                 <div class="group">
                     <label class="label" for="chip">Numéro de puce</label>

@@ -48,6 +48,20 @@ class PersonController extends AbstractController {
         include ('../views/header.php');
         include ('../views/persons/create_form.php');
         include ('../views/footer.php');
-        
+    }
+
+    /**
+     * Retourne une liste de personne ayant le nom dans le paramètre $data
+     * @param $id
+     * @param $data
+     */
+    public function search($id, $data) {
+        $persons = $this->dao->getPersonsByName($data);
+
+        if($persons) {
+            include ('../views/persons/search.php');
+        } else {
+            return null;
+        }
     }
 }

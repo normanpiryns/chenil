@@ -71,7 +71,12 @@ class AnimalController extends AbstractController {
      */
     public function search($id, $data) {
         $animals = $this->dao->getAnimalsByName($data);
-        include ('../views/animals/search.php');
+
+        if($animals) {
+            include ('../views/animals/search.php');
+        } else {
+            return null;
+        }
     }
 
 }
