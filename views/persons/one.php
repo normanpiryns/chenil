@@ -61,7 +61,7 @@
                     <h3><?= $result->name ?></h3>
                     <p><span class="label">Sexe :</span><span><?= $result->sex ?></span></p>
                     <p><span class="label">Date de naissance :</span> <span><?= $result->birthDate ?></span></p>
-                    <p><span class="label">Race :</span> <span><?= $result->race->__get('name'); ?></span></p>
+                    <p><span class="label">Race :</span> <span><?= $result->race->name; ?></span></p>
                     <p class="sterilized"><span><?php ($result->sterilized == 1) ? print("Stérilisé") :  print("Pas Stérilisé"); ?></span></p>
                     <p class="container-btn"><a class="btn link" href="/animals/show/<?= $result->id; ?>">Détails</a></p>
                 </div>

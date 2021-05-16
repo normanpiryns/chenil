@@ -39,7 +39,9 @@ class PersonController extends AbstractController {
 
     public function edit ($id) {
         $person = $this->dao->getPersonById($id);
-        include('../views/persons/form.php');
+        include ('../views/header.php');
+        include ('../views/persons/form.php');
+        include ('../views/footer.php');
     }
 
     public function create_form () {

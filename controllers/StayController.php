@@ -18,7 +18,9 @@ class StayController extends AbstractController {
         $is_stored_in_db = $this->dao->store($data);
         if($is_stored_in_db) {
             $stays = $this->dao->fetchAll();
+            include ('../views/header.php');
             include ('../views/stays/list.php');
+            include ('../views/footer.php');
         } else {
             echo "Error";
             return http_response_code(401);
@@ -28,7 +30,9 @@ class StayController extends AbstractController {
     public function delete ($id) {
         $this->dao->deleteStay($id);
         $stays = $this->dao->getStays();
+        include ('../views/header.php');
         include ('../views/stays/list.php');
+        include ('../views/footer.php');
     }
 
     public function show ($id) {
