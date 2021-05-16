@@ -1,6 +1,5 @@
-
 <?php foreach ($animals as $animal): ?>
-<div id="animal-presentation" class="animal-presentation">
+<div id="animal-presentation" class="animal-presentation" style="margin-bottom: 20px">
     <div class="wrapper-image">
         <img src="/images/dog.jpg" alt="">
 
