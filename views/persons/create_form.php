@@ -1,21 +1,21 @@
 <div class="content">
 
-    <h2>Add a person</h2>
+    <h2>Ajouter une personne</h2>
 
     <form  action="/persons/create" method="post">
 
         <div class="form-group">
-            <label for="firstName">First name</label>
+            <label for="firstName">Prénom</label>
             <input class="form-control" id="firstName" type="text" name="firstName"/>
         </div>
 
         <div class="form-group">
-            <label for="lastName">Last name</label>
+            <label for="lastName">Nom</label>
             <input class="form-control" id="lastName" type="text" name="lastName"/>
         </div>
 
         <div class="form-group">
-            <label for="birthDate">Date of birth</label>
+            <label for="birthDate">Date de Naissance</label>
             <input class="form-control" id="birthDate" type="date" name="birthDate">
         </div>
 
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            <label for="telephone">Telephone </label>
+            <label for="telephone">Téléphone </label>
             <input class="form-control" id="telephone" type="text" name="telephone">
         </div>
 

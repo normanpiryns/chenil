@@ -37,14 +37,14 @@ class SpeciesDao extends AbstractDao
     }
 
     // create species
-    public function store($species)
+    public function store($data)
     {
         if (empty($data['name'])) {
 
             return false;
         }
 
-        $animal = $this->create(
+        $species = $this->create(
             [
                 'id' => 0,
                 'name' => $data['name']
@@ -67,9 +67,9 @@ class SpeciesDao extends AbstractDao
         }
     }
 
-    public function updateSpecies($species)
+    public function updateSpecies($id, $data)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
@@ -77,7 +77,9 @@ class SpeciesDao extends AbstractDao
             $statement = $this->connection->prepare(
                 "UPDATE {$this->table} SET name = ? WHERE id = ?");
             $statement->execute([
-                htmlspecialchars($data['name'])
+                htmlspecialchars($data['name']),
+                htmlspecialchars($id)
+                
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();
@@ -86,14 +88,14 @@ class SpeciesDao extends AbstractDao
 
     public function deleteSpecies($id)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();

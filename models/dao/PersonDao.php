@@ -44,7 +44,7 @@ class PersonDao extends AbstractDao
             empty($data['birthDate']) ||
             empty($data['email']) ||
             empty($data['telephone'])) {
-            var_dump($data);
+            
             return false;
         }
 

@@ -5,7 +5,7 @@
 
 
 
-<form action="/xxx/update/<?= $animal->id ?>" method="POST">
+<form action="/animals/update/<?= $animal->id ?>" method="POST">
 
     <label for="name">Nom</label>
     <input type="text" name="name" id="name" value="<?= $animal->name ?>">

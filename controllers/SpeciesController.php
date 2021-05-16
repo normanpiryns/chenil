@@ -10,7 +10,6 @@ class SpeciesController extends AbstractController {
 
         include ('../views/header.php');
         include ('../views/species/list.php');
-        include ('../views/species/search.php');
         include ('../views/footer.php');
     }
 
@@ -26,14 +25,19 @@ class SpeciesController extends AbstractController {
         }
     }
 
-    public function delete ($id, $data) {
-        $this->dao->deleteSpecies($data);
+    public function update($id, $data) {
+        $this->dao->updateSpecies($id, $data);
+        $this->index();
+    }
+
+    public function delete ($id) {
+        $this->dao->deleteSpecies($id);
         $species = $this->dao->getSpecies();
         include ('../views/species/list.php');
     }
 
     public function show ($id) {
-        $species = $this->dao->fetch($id);
+        $species = $this->dao->getSpeciesById($id);
         include ('../views/species/one.php');
     }
 
@@ -42,4 +46,12 @@ class SpeciesController extends AbstractController {
         include('../views/species/form.php');
     }
 
+    public function create_form () {
+        include ('../views/species/create_form.php');
+    }
+
+    public function create ($id, $data) {
+        $this->dao->store($data);
+        $this->index();
+    }
 }

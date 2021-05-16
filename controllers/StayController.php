@@ -6,11 +6,10 @@ class StayController extends AbstractController {
     }
 
     public function index () {
-        $stay = $this->dao->getStay();
+        $stays = $this->dao->getStays();
 
         include ('../views/header.php');
         include ('../views/stays/list.php');
-        include ('../views/stays/search.php');
         include ('../views/footer.php');
     }
 
@@ -26,14 +25,14 @@ class StayController extends AbstractController {
         }
     }
 
-    public function delete ($id, $data) {
-        $this->dao->deleteStays($data);
-        $species = $this->dao->getStays();
+    public function delete ($id) {
+        $this->dao->deleteStay($id);
+        $stays = $this->dao->getStays();
         include ('../views/stays/list.php');
     }
 
     public function show ($id) {
-        $stays = $this->dao->fetch($id);
+        $stay = $this->dao->getStayById($id);
         include ('../views/stays/one.php');
     }
 

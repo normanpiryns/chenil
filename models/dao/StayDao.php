@@ -90,14 +90,14 @@ class StayDao extends AbstractDao
 
     public function deleteStay($id)
     {
-        if (empty($data['id'])) {
+        if (empty($id)) {
             return false;
         }
 
         try {
             $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE id = ?");
             $statement->execute([
-                $data['id']
+                $id
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();
@@ -119,9 +119,9 @@ class StayDao extends AbstractDao
     {
         return new Stay(
             $result['id'],
-            $result['name'],
             $result['dateBegin'],
-            $result['dateEnd']
+            $result['dateEnd'],
+            $result['fk_animal']
         );
     }
 
