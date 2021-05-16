@@ -35,7 +35,7 @@
                <td><?= $person->__get('email'); ?></td>
                <td><?= $person->__get('telephone'); ?></td>
                <td>
-                   <a class="link" href="/persons/show/<?= $person->__get('id'); ?>">Voir</a>
+                   <a class="btn bg-yellow" href="/persons/show/<?= $person->__get('id'); ?>">Voir</a>
                </td>
            </tr>
       <?php endforeach; ?>

@@ -31,14 +31,17 @@
                 <span class="label">Téléphone</span>
                 <span><?= $person->telephone ?></span>
             </div>
+
+            <div style="margin-top: 40px;">
+                <a class="btn bg-red" href="/persons/delete/<?= $person->__get('id'); ?>">Supprimer la personne</a>
+            </div>
+
         </div>
 
-        <div style="margin-top: 40px;">
-            <a class="link" style="background-color: #aba8a8" href="/persons/delete/<?= $person->__get('id'); ?>">Supprimer la personne</a>
-        </div>
+
 
         <div style="margin-top: 40px;">
-            <a class="link" style="background-color: #aba8a8" href="/animals/create_form/">Ajouter un nouveau chien</a>
+            <a class="btn bg-yellow" href="/animals/create_form/">Ajouter un nouveau chien</a>
         </div>
 
     </div>
@@ -63,7 +66,7 @@
                     <p><span class="label">Date de naissance :</span> <span><?= $result->birthDate ?></span></p>
                     <p><span class="label">Race :</span> <span><?= $result->race->__get('name'); ?></span></p>
                     <p class="sterilized"><span><?php ($result->sterilized == 1) ? print("Stérilisé") :  print("Pas Stérilisé"); ?></span></p>
-                    <p class="container-btn"><a class="btn link" href="/animals/show/<?= $result->id; ?>">Détails</a></p>
+                    <p class="container-btn"><a class="btn bg-yellow" href="/animals/show/<?= $result->id; ?>">Détails</a></p>
                 </div>
             </div>
         <?php endforeach; ?>
