@@ -41,7 +41,7 @@
     <div class="content-page">
 
         <div class="add-person-link">
-            <a routerLink="/create-all" class="link" >Ajouter un propriétaire</a>
+            <a routerLink="/persons/create_form" class="link" >Ajouter un propriétaire</a>
         </div>
 
 
