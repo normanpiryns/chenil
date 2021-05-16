@@ -32,7 +32,9 @@ class PersonController extends AbstractController {
 
     public function show ($id) {
         $person = $this->dao->getPersonById($id);
+        include ('../views/header.php');
         include ('../views/persons/one.php');
+        include ('../views/footer.php');
     }
 
     public function edit ($id) {
@@ -41,6 +43,9 @@ class PersonController extends AbstractController {
     }
 
     public function create_form () {
+        include ('../views/header.php');
         include ('../views/persons/create_form.php');
+        include ('../views/footer.php');
+        
     }
 }

@@ -42,6 +42,21 @@ class AnimalDao extends AbstractDao
         }
     }
 
+    /* self-explanatory */
+    public function getAnimalsByFkPerson($fk_person)
+    {
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE fk_person = ?");
+            $statement->execute([
+                $fk_person
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
     /**
      * Récupère un animal avec les données complet.
      * C'est à dire en tenant compte de ses jointures avec les autres tables
