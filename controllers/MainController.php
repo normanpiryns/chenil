@@ -7,6 +7,4 @@ class MainController {
         include('../views/main.php');
         include('../views/footer.php');
     }
-
 }
-?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Chenil</title>
-    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
@@ -14,10 +14,10 @@
 
     <ul>
         <li><a href="home">Rechercher</a></li>
-        <li><a href="persons">Maître</a></li>
-        <li><a href="animals">Animal</a></li>
-        <li><a href="races">Races</a></li>
-        <li><a href="species">Espèces</a></li>
-        <li><a href="vaccines">Vaccins</a></li>
+        <li><a href="/persons/index">Maître</a></li>
+        <li><a href="/animals/index">Animal</a></li>
+        <li><a href="/races/index">Races</a></li>
+        <li><a href="/species/index">Espèces</a></li>
+        <li><a href="/vaccines/index">Vaccins</a></li>
     </ul>
 </header>

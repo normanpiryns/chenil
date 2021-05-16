@@ -44,7 +44,7 @@
 
 <div class="single-person-animal page">
     <div class="content-page">
-        <h1 style="margin-bottom: 20px">Ajouter un maître</h1>
+        <h1 style="margin-bottom: 20px">Ajouter un animal</h1>
         <!--    Animal-->
         <h2>Information du maître</h2>
         <div class="animal-cart-info">
@@ -60,6 +60,15 @@
                     <label class="label" for="sex">Nom</label>
                     <input id="sex" type="text" value="Rodger">
                 </div>
+
+                        <div>
+                            <label for="fk_race">Race</label>
+                            <select name="fk_race" id="fk_race">
+                                <?php foreach ($races as $race): ?>
+                                    <option value="<?= $race->__get('id'); ?>"><?= $race->__get('name'); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
 
                 <div class="group">
                     <label class="label" for="birthDate">Date de naissance</label>

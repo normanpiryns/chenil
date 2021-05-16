@@ -10,7 +10,6 @@ class AnimalController extends AbstractController {
 
         include ('../views/header.php');
         include ('../views/animals/list.php');
-        include ('../views/animals/search.php');
         include ('../views/footer.php');
     }
 
@@ -20,7 +19,9 @@ class AnimalController extends AbstractController {
      */
     public function show ($id) {
         $animal = $this->dao->getAnimalByIdFullData($id);
+        include ('../views/header.php');
         include ('../views/animals/one.php');
+        include ('../views/footer.php');
     }
 
     /**
