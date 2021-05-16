@@ -13,11 +13,6 @@
                     <input id="name" type="text" name="name" value="<?= $species->name ?>">
                 </div>
 
-                <div class="group">
-                    <label class="label" for="species">Espèce</label>
-                    <p>AJOUTER L4SPECE</p>
-                </div>
-
                 <input class="btn bg-yellow" type="submit" value="Enregistrer">
             </form>
 
