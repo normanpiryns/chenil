@@ -64,8 +64,13 @@ class AnimalController extends AbstractController {
         $this->index();
     }
 
-    public function search($id) {
-        $animal = $this->dao->getAnimalByIdFullData($id);
+    /**
+     * Retourne une liste d'animaux ayant le nom dans le paramètre $data
+     * @param $id
+     * @param $data
+     */
+    public function search($id, $data) {
+        $animals = $this->dao->getAnimalsByName($data);
         include ('../views/animals/search.php');
     }
 

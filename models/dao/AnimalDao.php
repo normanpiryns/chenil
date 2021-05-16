@@ -62,8 +62,6 @@ class AnimalDao extends AbstractDao
         }
     }
 
-
-
     /**
      * Récupère la personne à qui appartient l'animal
      * @param $id
@@ -83,7 +81,25 @@ class AnimalDao extends AbstractDao
         }
     }
 
-    // create animal
+
+    /**
+     * Retourne une liste d'animaux qui porte le nom entré en paramètre
+     * @return array
+     */
+    public function getAnimalsByName($data)
+    {
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE name = ?");
+            $statement->execute([
+                $data['name']
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
 
     /**
      * Enregistre un animal dans la DB
@@ -185,7 +201,7 @@ class AnimalDao extends AbstractDao
     {
         $productList = array();
         foreach ($results as $result) {
-            array_push($productList, $this->create($result));
+            array_push($productList, $this->deepCreate($result));
         }
         return $productList;
     }

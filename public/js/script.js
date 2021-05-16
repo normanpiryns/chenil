@@ -4,40 +4,25 @@ $(document).ready(function () {
     console.log("LE document est pret");
     $('form#form-search-animal').on('submit', function (e) {
         e.preventDefault();
-        console.log("on a submit")
 
+        $('div#animal-presentation').remove();
 
-        let $search = $(this).find('input#search-animal').val();
+        let $animalName = $(this).find('input#search-animal').val();
+        let data = {
+            name: $animalName
+        }
 
-        console.log($search)
-
-        $.get('/animals/search/29', function () {
+        $.post('/animals/search/', data, function () {
 
         })
             .done(function (result) {
-                console.log("on est dans less done")
-                let $result = $(result);
-                $('container-result').html($result.html());
-              console.log(result)
+                $('div#container-result').append(result) // on ajoute l'animal dans le container
+
             })
             .fail(function (error) {
                 console.log('error', error);
 
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
          });
 
     // $('form').on('submit', function (e) {

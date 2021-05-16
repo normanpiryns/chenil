@@ -10,7 +10,6 @@
 
 body {
     background-color: #7e0609;
-
 }
 
 .page {
@@ -221,14 +220,22 @@ a {
     margin-bottom: 5px;
 }
 
-.animal-presentation .wrapper-text .sterilized span {
-    background-color: green;
+.animal-presentation .wrapper-text .sterilization span {
+
     padding: 5px;
     border-radius: 3px;
     font-weight: bold;
     color: #c9eac9;
     text-transform: uppercase;
     font-size: 12px;
+}
+
+.bg-sterilized {
+    background-color: green;
+}
+
+.bg-unsterilized {
+    background-color: #7e0609;
 }
 
 /* TABLE */
@@ -350,4 +357,12 @@ input, select, textarea {
 
 .bg-grey:hover {
     background-color: #696868
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.bg-green:hover {
+    background-color: darkgreen;
 }
