@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Chenil</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
-    <script src="/js/chenil.js"></script>
+    <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
 <body>
+
+<header id="header">
+    <div class="logo">
+        Mon Chenil
+    </div>
+
+    <ul>
+        <li><a href="home">Rechercher</a></li>
+        <li><a href="persons">Maître</a></li>
+        <li><a href="animals">Animal</a></li>
+        <li><a href="races">Races</a></li>
+        <li><a href="species">Espèces</a></li>
+        <li><a href="vaccines">Vaccins</a></li>
+    </ul>
+</header>
