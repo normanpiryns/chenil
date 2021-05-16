@@ -93,6 +93,10 @@ a {
     border: solid #515151 1px;
 }
 
+.animal-presentation {
+    margin-bottom: 20px;
+}
+
 #home .master {
     background-color: #b61924;;
 }

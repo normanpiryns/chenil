@@ -42,7 +42,9 @@ class AnimalController extends AbstractController {
     public function create_form () {
         $raceDao = new RaceDao();
         $races = $raceDao->getRaces();
+        include ('../views/header.php');
         include ('../views/animals/create_form.php');
+        include ('../views/footer.php');
     }
 
     /**
@@ -52,7 +54,7 @@ class AnimalController extends AbstractController {
      */
     public function update($id, $data) {
         $this->dao->updateAnimal($id, $data);
-        $this->index();
+        $this->show($id);
     }
 
     /**
