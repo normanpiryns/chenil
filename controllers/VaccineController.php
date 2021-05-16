@@ -8,11 +8,16 @@ class VaccineController extends AbstractController {
 
     public function index () {
         $vaccines = $this->dao->getVaccines();
+
+        include ('../views/header.php');
         include ('../views/vaccines/list.php');
+        include ('../views/footer.php');
     }
 
     public function create_form () {
+        include ('../views/header.php');
         include ('../views/vaccines/create_form.php');
+        include ('../views/footer.php');
     }
 
     /**
@@ -27,7 +32,10 @@ class VaccineController extends AbstractController {
 
     public function show ($id) {
         $vaccine = $this->dao->getVaccineById($id);
+
+        include ('../views/header.php');
         include ('../views/vaccines/one.php');
+        include ('../views/footer.php');
     }
 
     public function update($id, $data) {

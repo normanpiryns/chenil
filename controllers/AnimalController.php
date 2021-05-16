@@ -19,6 +19,8 @@ class AnimalController extends AbstractController {
      */
     public function show ($id) {
         $animal = $this->dao->getAnimalByIdFullData($id);
+        $raceDao = new RaceDao();
+        $races = $raceDao->getRaces(); // on récupère la liste des races dans le cas ou l'utilisateur voudrait modifier la race du chien
         include ('../views/header.php');
         include ('../views/animals/one.php');
         include ('../views/footer.php');
@@ -60,6 +62,16 @@ class AnimalController extends AbstractController {
     public function delete ($id) {
         $this->dao->deleteAnimal($id);
         $this->index();
+    }
+
+    /**
+     * Retourne une liste d'animaux ayant le nom dans le paramètre $data
+     * @param $id
+     * @param $data
+     */
+    public function search($id, $data) {
+        $animals = $this->dao->getAnimalsByName($data);
+        include ('../views/animals/search.php');
     }
 
 }

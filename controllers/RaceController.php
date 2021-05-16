@@ -8,13 +8,19 @@ class RaceController extends AbstractController {
 
     public function index () {
         $races = $this->dao->getRaces();
+
+        include ('../views/header.php');
         include ('../views/races/list.php');
+        include ('../views/footer.php');
     }
 
     public function create_form () {
         $specieDao = new SpeciesDao();
         $species = $specieDao->getSpecies();
+
+        include ('../views/header.php');
         include ('../views/races/create_form.php');
+        include ('../views/footer.php');
     }
 
     /**
@@ -29,7 +35,9 @@ class RaceController extends AbstractController {
 
     public function show ($id) {
         $race = $this->dao->getRaceById($id);
+        include ('../views/header.php');
         include ('../views/races/one.php');
+        include ('../views/footer.php');
     }
 
     public function update($id, $data) {

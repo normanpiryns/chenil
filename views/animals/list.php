@@ -24,8 +24,8 @@
                 <td><?= $animal->__get('sterilized'); ?></td>
                 <td><?= $animal->__get('birthDate'); ?></td>
                 <td>
-                    <a href="/animals/show/<?= $animal->__get('id'); ?>" class="link bg-yellow">Voir</a>
-                    <a href="">Supprimer</a>
+                    <a href="/animals/show/<?= $animal->__get('id'); ?>" class="btn bg-yellow">Voir</a>
+                    <a href="/animals/delete/<?= $animal->__get('id'); ?>" class="btn bg-red">Supprimer</a>
                 </td>
             </tr>
             <?php endforeach; ?>

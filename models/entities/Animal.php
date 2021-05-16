@@ -1,6 +1,7 @@
 <?php
 
-class Animal {
+class Animal
+{
     private $id;
     private $name;
     private $chip;
@@ -9,8 +10,10 @@ class Animal {
     private $birthDate;
     private $person;
     private $race;
+    private $stay;
 
-    public function __construct ($id, $name, $chip, $sex, $sterilized, $birthDate, $person = false, $race=false) {
+    public function __construct($id, $name, $chip, $sex, $sterilized, $birthDate, $person = false, $race = false, $stay = false)
+    {
         $this->id = $id;
         $this->name = $name;
         $this->chip = $chip;
@@ -19,16 +22,19 @@ class Animal {
         $this->birthDate = $birthDate;
         $this->person = $person;
         $this->race = $race;
+        $this->stay = $stay;
     }
 
-    public function __get ($prop) {
+    public function __get($prop)
+    {
         if (property_exists($this, $prop)) {
             return $this->$prop;
         }
     }
 
-    public function __set ($prop, $value) {
-        if(property_exists($this, $prop)) {
+    public function __set($prop, $value)
+    {
+        if (property_exists($this, $prop)) {
             $this->$prop = $value;
         }
     }

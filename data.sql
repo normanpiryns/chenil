@@ -44,25 +44,25 @@ INSERT INTO persons (firstName, lastName, birthDate, email, telephone) VALUES ('
 -- Animals
 
 INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Tabbie', '2ae9faa6-e20df7', 'M', false, '2021-03-30', 5, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Pierson', 'd7ae7e2c-1c85db', 'M', true, '2020-06-07', 2, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Brand', 'd2a4a665-e256-9', 'M', true, '2021-02-12', 7, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Rafael', '880c0310-b06d24', 'M', true, '2021-03-12', 5, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Carny', 'd5023369-4daa-a', 'M', false, '2020-12-12', 4, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Olga', '50390c92-c47d-4', 'F', false, '2020-11-01', 7, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Georgeanna', 'e6fd34e3-0719aa', 'F', false, '2020-10-09', 1, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Donalt', '3a111cbc-41158c', 'M', true, '2021-04-19', 1, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Pernell', 'eef78c17-6fcb40', 'M', false, '2020-07-09', 2, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Dagny', 'f480d3be-84a8-c', 'M', false, '2020-12-09', 7, 1);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Pierson', 'd7ae7e2c-1c85db', 'M', true, '2020-06-07', 2, 2);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Brand', 'd2a4a665-e256-9', 'M', true, '2021-02-12', 7, 3);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Rafael', '880c0310-b06d24', 'M', true, '2021-03-12', 5, 4);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Carny', 'd5023369-4daa-a', 'M', false, '2020-12-12', 4, 5);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Olga', '50390c92-c47d-4', 'F', false, '2020-11-01', 7, 6);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Georgeanna', 'e6fd34e3-0719aa', 'F', false, '2020-10-09', 1, 7);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Donalt', '3a111cbc-41158c', 'M', true, '2021-04-19', 1, 8);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Pernell', 'eef78c17-6fcb40', 'M', false, '2020-07-09', 2, 9);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Dagny', 'f480d3be-84a8-c', 'M', false, '2020-12-09', 7, 10);
 INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Elia', 'e263905e-d535-4', 'M', false, '2020-11-01', 6, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Wilfred', '00e2b74f-04de96', 'M', false, '2021-03-22', 9, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Sawyer', 'acde6f6a-040d27', 'M', true, '2021-02-19', 8, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Jocelyne', '747804bf-c42665', 'F', false, '2021-03-13', 7, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Jory', '1e408425-114e-4', 'M', false, '2020-05-27', 10, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Dorolice', '34f596b2-8de7af', 'F', true, '2020-06-09', 5, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Rubi', '1c85dad6-e667-4', 'F', true, '2020-06-05', 4, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Roxanne', 'ff970d0e-10bd1c', 'F', false, '2020-07-10', 4, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Auberta', '34a211fd-7dd597', 'F', true, '2020-07-04', 8, 1);
-INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Casey', '24f3f0d9-9690-8', 'F', false, '2020-07-10', 5, 1);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Wilfred', '00e2b74f-04de96', 'M', false, '2021-03-22', 9, 2);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Sawyer', 'acde6f6a-040d27', 'M', true, '2021-02-19', 8, 3);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Jocelyne', '747804bf-c42665', 'F', false, '2021-03-13', 7, 4);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Jory', '1e408425-114e-4', 'M', false, '2020-05-27', 10, 5);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Dorolice', '34f596b2-8de7af', 'F', true, '2020-06-09', 5, 6);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Rubi', '1c85dad6-e667-4', 'F', true, '2020-06-05', 4, 7);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Roxanne', 'ff970d0e-10bd1c', 'F', false, '2020-07-10', 4, 8);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Auberta', '34a211fd-7dd597', 'F', true, '2020-07-04', 8, 9);
+INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Casey', '24f3f0d9-9690-8', 'F', false, '2020-07-10', 5, 10);
 
 
 -- Stays

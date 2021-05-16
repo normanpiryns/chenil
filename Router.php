@@ -13,7 +13,7 @@ class Router {
         $this->get = $_GET;
         $this->post = $_POST;
 
-        $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'showAll', 'update', 'store', 'index'];
+        $this->actions = ['create_form','create', 'edit', 'delete', 'show', 'showAll', 'update', 'store', 'index', 'search'];
         $this->controllers = [
             'index' => 'MainController', 
             'animals' => 'AnimalController',

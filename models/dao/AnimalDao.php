@@ -96,7 +96,25 @@ class AnimalDao extends AbstractDao
         }
     }
 
-    // create animal
+
+    /**
+     * Retourne une liste d'animaux qui porte le nom entré en paramètre
+     * @return array
+     */
+    public function getAnimalsByName($data)
+    {
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE name = ?");
+            $statement->execute([
+                $data['name']
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
 
     /**
      * Enregistre un animal dans la DB
@@ -198,7 +216,7 @@ class AnimalDao extends AbstractDao
     {
         $productList = array();
         foreach ($results as $result) {
-            array_push($productList, $this->create($result));
+            array_push($productList, $this->deepCreate($result));
         }
         return $productList;
     }
@@ -227,7 +245,7 @@ class AnimalDao extends AbstractDao
      */
     public function deepCreate($result)
     {
-        // get Owner
+        // get owner
         $ownerId = $result['fk_person']; // owner id
         $personDao = new PersonDao();
         $person = $personDao->getPersonById($ownerId); // get animal owner
@@ -236,6 +254,11 @@ class AnimalDao extends AbstractDao
         $raceId = $result['fk_race']; // race id
         $raceDao = new RaceDao();
         $race = $raceDao->getRaceById($raceId); // get animal race
+
+        // get stays
+//        $raceId = $result['fk_race']; // race id
+//        $stayDao = new StayDao();
+//        $stay = $stayDao->($raceId); // get animal race
 
         return new Animal(
             $result['id'],
