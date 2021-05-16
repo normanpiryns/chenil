@@ -96,7 +96,6 @@ class AnimalDao extends AbstractDao
         }
     }
 
-
     /**
      * Retourne une liste d'animaux qui porte le nom entré en paramètre
      * @return array

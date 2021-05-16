@@ -1,3 +1,4 @@
+<?php $i = 0; ?>
 <div class="page">
     <div class="content-page">
 
@@ -7,6 +8,7 @@
                 <!--  Head-->
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nom</th>
                     <th>Sexe</th>
                     <th>Est stérilisé</th>
@@ -17,14 +19,15 @@
 
                 <!--  Body-->
                 <tbody>
-                <?php foreach ($animals as $animal): ?>
+                <?php foreach ($animals as $animal): $i++ ?>
                     <tr>
+                        <th><?php echo $i; ?></th>
                         <td><?= $animal->__get('name'); ?></td>
                         <td><?= $animal->__get('sex'); ?></td>
 
                         <td>
                             <?php if ($animal->sterilized) { ?>
-                                <span  style="padding: 2px 8px; background-color: green">Oui</span>
+                                <span style="padding: 2px 8px; background-color: green">Oui</span>
                             <?php } ?>
                             <?php if (!$animal->sterilized) { ?>
                                 <span style="padding: 2px 5px; background-color: rgb(181, 25, 29);">Non</span>

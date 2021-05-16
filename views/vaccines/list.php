@@ -1,4 +1,4 @@
-
+<?php $i = 0; ?>
 <div class="page">
     <div class="content-page">
 
@@ -12,6 +12,7 @@
             <!--  Head-->
             <thead>
             <tr>
+                <th>#</th>
                 <th>Nom</th>
                 <th>Action</th>
             </tr>
@@ -20,8 +21,9 @@
             <!--  Body-->
             <tbody>
             <?php if (!empty($vaccines)): ?>
-                <?php foreach ($vaccines as $vaccine): ?>
+                <?php foreach ($vaccines as $vaccine): $i++ ?>
                     <tr>
+                        <th><?php echo $i; ?></th>
                         <td><?= $vaccine->__get('name'); ?></td>
                         <td>
                             <a class="btn bg-yellow" href="/vaccines/show/<?= $vaccine->__get('id'); ?>">Modifier</a>

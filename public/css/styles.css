@@ -93,6 +93,10 @@ a {
     border: solid #515151 1px;
 }
 
+.animal-presentation {
+    margin-bottom: 20px;
+}
+
 #home .master {
     background-color: #b61924;;
 }
@@ -256,6 +260,11 @@ tbody tr {
     background-color: rgb(157, 152, 152);
 
     border: solid red;
+}
+
+tr th {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 tbody tr a:first-child {

@@ -1,3 +1,4 @@
+<?php $i = 0; ?>
 <div class="page">
     <div class="content-page">
 
@@ -11,6 +12,7 @@
             <!--  Head-->
             <thead>
             <tr>
+                <th>#</th>
                 <th>Nom</th>
                 <th>Action</th>
             </tr>
@@ -19,8 +21,9 @@
             <!--  Body-->
             <tbody>
             <?php if (!empty($races)): ?>
-                <?php foreach ($races as $race): ?>
+                <?php foreach ($races as $race): $i++  ?>
                     <tr>
+                        <th><?php echo $i; ?></th>
                         <td><?= $race->__get('name'); ?></td>
                         <td>
                             <a class="btn bg-yellow" href="/races/show/<?= $race->__get('id'); ?>">Modifier</a>

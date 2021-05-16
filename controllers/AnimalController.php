@@ -54,7 +54,7 @@ class AnimalController extends AbstractController {
      */
     public function update($id, $data) {
         $this->dao->updateAnimal($id, $data);
-        $this->index();
+        $this->show($id);
     }
 
     /**
