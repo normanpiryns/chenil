@@ -118,6 +118,7 @@
 
 <div class="single-person-animal page">
     <div class="content-page">
+        <h1><?php $person->__get('firstName') . ' ' . $person->__get('lastName'); ?>
 
         <h2>Information du maitre</h2>
         <!--Master -->

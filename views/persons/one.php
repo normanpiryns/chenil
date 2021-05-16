@@ -32,9 +32,17 @@
                 <span><?= $person->telephone ?></span>
             </div>
 
-            <div style="margin-top: 40px;">
+            <div class="inl-bl" style="margin-top: 40px;">
+                <a class="btn bg-yellow" href="/persons/edit/<?= $person->__get('id'); ?>">Modifier la personne</a>
+            </div>
+            
+            <div class="inl-bl" style="margin-top: 40px;">
                 <a class="btn bg-red" href="/persons/delete/<?= $person->__get('id'); ?>">Supprimer la personne</a>
             </div>
+
+            
+
+            
 
         </div>
 

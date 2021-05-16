@@ -59,7 +59,7 @@ class PersonDao extends AbstractDao
             ]
         );
 
-        var_dump($person);
+      
 
         if ($person) {
             try {

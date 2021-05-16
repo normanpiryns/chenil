@@ -366,3 +366,9 @@ input, select, textarea {
 .bg-green:hover {
     background-color: darkgreen;
 }
+
+/* Extra */
+
+.inl-bl{
+    display: inline-block;
+}
