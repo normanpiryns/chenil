@@ -26,6 +26,10 @@ body {
     margin-bottom: 50px;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
 ul {
     list-style: none;
     margin: 0;
@@ -301,7 +305,7 @@ tbody td {
 
 /*FORM */
 
-input, select {
+input, select, textarea {
     margin: 0;
     padding: 10px;
 }

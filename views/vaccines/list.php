@@ -24,8 +24,8 @@
                     <tr>
                         <td><?= $vaccine->__get('name'); ?></td>
                         <td>
-                            <a class="btn bg-yellow" href="/vaccines/show/--><?= $vaccine->__get('id'); ?>">Modifier</a>
-                            <a class="btn bg-red" href="/vaccines/delete/--><?= $vaccine->__get('id'); ?>">Supprimer</a>
+                            <a class="btn bg-yellow" href="/vaccines/show/<?= $vaccine->__get('id'); ?>">Modifier</a>
+                            <a class="btn bg-red" href="/vaccines/delete/<?= $vaccine->__get('id'); ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

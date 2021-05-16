@@ -17,7 +17,10 @@ class RaceController extends AbstractController {
     public function create_form () {
         $specieDao = new SpeciesDao();
         $species = $specieDao->getSpecies();
+
+        include ('../views/header.php');
         include ('../views/races/create_form.php');
+        include ('../views/footer.php');
     }
 
     /**

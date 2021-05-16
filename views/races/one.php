@@ -18,11 +18,11 @@
                     <p>AJOUTER L4SPECE</p>
                 </div>
 
-                <input class="bg-yellow" type="submit" value="Enregistrer">
+                <input class="btn bg-yellow" type="submit" value="Enregistrer">
             </form>
 
             <div>
-                <a class="bg-red" href="/races/delete/<?= $race->__get('id'); ?>">Supprimer la race</a>
+                <a class="btn bg-red" href="/races/delete/<?= $race->__get('id'); ?>">Supprimer la race</a>
             </div>
         </div>
     </div>

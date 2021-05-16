@@ -15,7 +15,9 @@ class VaccineController extends AbstractController {
     }
 
     public function create_form () {
+        include ('../views/header.php');
         include ('../views/vaccines/create_form.php');
+        include ('../views/footer.php');
     }
 
     /**

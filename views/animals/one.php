@@ -148,7 +148,7 @@
             </div>
 
             <div style="margin-top: 20px">
-                <a class="btn bg-yellow" style="padding: 8px 150px" href="">Afficher</a>
+                <a class="btn bg-yellow" style="padding: 8px 150px" href="/persons/show/<?= $animal->person->id ?>">Afficher</a>
             </div>
 
         </div>
