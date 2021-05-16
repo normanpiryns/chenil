@@ -262,6 +262,11 @@ tbody tr {
     border: solid red;
 }
 
+tr th {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 tbody tr a:first-child {
     margin-right: 10px
 }
