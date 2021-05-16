@@ -26,4 +26,4 @@
 
 <?php endif; ?>
 
-<a href="/vaccines/create_form">Ajouter un nouveau vaccin</a>
+<a href="/races/create_form">Ajouter un nouveau vaccin</a>

@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+/*General*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;;
+}
+
+body {
+    background-color: #7e0609;
+
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-page {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin-bottom: 50px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Header */
+
+#header {
+    display: flex;
+    align-items: center;
+    background-color: #131313;
+    margin-bottom: 100px;
+    padding: 10px 10px;
+}
+
+#header .logo {
+    margin-right: 50px;
+    font-size: 36px;
+    color: white;
+}
+
+#header ul {
+    display: flex;
+}
+
+#header ul li {
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#header ul li a {
+    color: #c3c1c1;
+}
+
+/* HOME */
+
+#home .content-page {
+    align-items: center;
+}
+
+#home .container-search {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+#home .wrapper-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 80px;
+    flex: 1;
+}
+
+#home .master, #home .animal, .animal-presentation {
+    border: solid #515151 1px;
+}
+
+#home .master {
+    background-color: #b61924;;
+}
+
+#home .animal {
+    background-color: #181818;
+}
+
+#home h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+#home form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#home .animal h2 {
+    color: #d0d0d0;
+}
+
+#home .container-result, #home .container-search {
+    width: 100%;
+}
+
+#home .container-btn input {
+    width: 100%;
+}
+
+/* PERSONS*/
+
+#person .add-person-link {
+    margin-bottom: 20px;
+}
+
+#person .add-person-link a {
+    padding: 10px 10px;
+    background-color: #4f4f4f;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    color: #e2dfdf;
+}
+
+/* FOOTER */
+
+#footer {
+    padding: 50px 0;
+    background-color: #131313;
+    color: white;
+    margin-top: 180px;
+}
+
+#footer .content-page {
+    margin: 0;
+}
+
+#footer h2 {
+    font-size: 18px;
+    font-weight: unset;
+    border-bottom: 1px solid;
+    width: fit-content;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+#footer li {
+    margin-bottom: 5px;
+}
+
+#footer a {
+    color: white;
+}
+
+#footer .credit {
+    margin-top: 15px;
+    margin-bottom: 0;
+
+}
+
+/* ANIMAL PRESENTATION*/
+
+.animal-presentation {
+    display: flex;
+    background-color: #b61924;
+}
+
+.animal-presentation .wrapper-image {
+    display: flex;
+    flex: 1;
+
+}
+
+.animal-presentation .wrapper-text {
+    padding: 30px;
+    flex: 1;
+}
+
+.animal-presentation h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.animal-presentation p {
+    font-weight: bold;
+}
+
+.animal-presentation .label {
+    text-transform: uppercase;
+}
+
+.animal-presentation img {
+
+    width: 100%;
+}
+
+.animal-presentation .wrapper-text p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.animal-presentation .wrapper-text .sterilized span {
+    background-color: green;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #c9eac9;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* TABLE */
+
+table td {
+    text-align: center;
+}
+
+thead th {
+    padding: 10px 0;
+    background-color: rgb(21, 19, 19);
+    color: #d4d1d1;;
+}
+
+tbody tr {
+    text-align: center;
+    height: 40px;
+    background-color: rgb(157, 152, 152);
+}
+
+tbody tr .link {
+    background-color: rgb(181, 25, 29);
+    padding: 5px 20px;
+}
+
+tbody tr a:first-child {
+    background-color: #4f4f4f;
+    color: white;
+    margin-right: 10px
+}
+
+/* SINGLE ANIMAL & SINGLE PERSON INFOS */
+
+.master-cart-info, .animal-cart-info {
+    background-color: rgb(21, 19, 19);
+    color: white;
+    box-shadow: 3px 3px 25px rgb(88, 13, 20);;
+}
+
+.single-person-animal .group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.single-person-animal .label {
+    color: white;
+    width: 150px;
+    text-align: end;
+    margin-right: 50px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+/*SINGLE PERSON INFOS*/
+
+.master-cart-info {
+    padding: 30px;
+    border-radius: 5px;
+
+}
+
+/*SINGLE ANIMAL INFOS */
+
+.animal-cart-info {
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.animal-cart-info input[type=submit] {
+    border: unset;
+    background-color: #aba8a8;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    width: 38.5%;
+}
+
+.animal-cart-info .btn-delete {
+    border: unset;
+    background-color: rgb(181, 25, 29);
+
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/*FORM */
+
+input {
+    margin: 0;
+    padding: 10px;
+}
+
+/* button*/
+
+.btn {
+    border: unset;
+    background-color: rgb(230, 199, 73);
+    padding: 10px 0;
+    margin-top: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(207, 178, 45);
+}
+
+/*LINK */
+
+.link {
+    text-align: center;
+    width: 100%;
+    padding: 10px 50px;
+}
+
+/*Main colors*/
+
+.color-yellow {
+    color:  rgb(230, 199, 73);
+}
