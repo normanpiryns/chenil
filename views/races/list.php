@@ -1,33 +1,9 @@
-<?php //if (!empty($races)): ?>
-<!---->
-<!--    <h2>Liste des races</h2>-->
-<!---->
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>Nom</th>-->
-<!--            <th>Actions</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        --><?php //foreach ($races as $race): ?>
-<!--            <tr>-->
-<!--                <td>--><?//= $race->__get('name'); ?><!--</td>-->
-<!--                <td>-->
-<!--                    <button class="btn btn-warning btn-sm"><a href="/races/show/--><?//= $race->__get('id'); ?><!--">Modifier</a></button>-->
-<!--                    <button class="btn btn-warning btn-sm"><a href="/races/delete/--><?//= $race->__get('id'); ?><!--">Supprimer</a></button>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--        --><?php //endforeach; ?>
-<!--        </tbody>-->
-<!--    </table>-->
-<!---->
-<?php //endif; ?>
-<!---->
-<!--<a href="/races/create_form">Ajouter une nouvelle race</a>-->
-
 <div class="page">
     <div class="content-page">
+
+        <div style="margin-bottom: 20px">
+            <a href="/races/create_form" class="btn bg-grey">Ajouter une nouvelle race</a>
+        </div>
 
         <h1>Liste des races</h1>
 
@@ -36,48 +12,23 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <th>Espèce</th>
                 <th>Action</th>
             </tr>
             </thead>
 
             <!--  Body-->
             <tbody>
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
-
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
-
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
-
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
-
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
-
-            <tr>
-                <td>Border collie</td>
-                <td>Canidé</td>
-                <td>Modifier Supprimer</td>
-            </tr>
+            <?php if (!empty($races)): ?>
+                <?php foreach ($races as $race): ?>
+                    <tr>
+                        <td><?= $race->__get('name'); ?></td>
+                        <td>
+                            <a class="btn bg-yellow" href="/races/show/<?= $race->__get('id'); ?>">Modifier</a>
+                            <a class="btn bg-red" href="/races/delete/<?= $race->__get('id'); ?>">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
             </tbody>
         </table>

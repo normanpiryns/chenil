@@ -109,6 +109,10 @@ a {
     width: 100%;
 }
 
+#home .btn-search {
+    margin-top: 20px;
+}
+
 #home .animal h2 {
     color: #d0d0d0;
 }
@@ -227,6 +231,7 @@ a {
 
 table td {
     text-align: center;
+
 }
 
 thead th {
@@ -237,19 +242,17 @@ thead th {
 
 tbody tr {
     text-align: center;
-    height: 40px;
     background-color: rgb(157, 152, 152);
-}
 
-tbody tr .link {
-
-    padding: 5px 20px;
+    border: solid red;
 }
 
 tbody tr a:first-child {
-    background-color: #4f4f4f;
-    color: white;
     margin-right: 10px
+}
+
+tbody td {
+    padding: 13px 0;
 }
 
 /* SINGLE ANIMAL & SINGLE PERSON INFOS */
@@ -280,7 +283,6 @@ tbody tr a:first-child {
 .master-cart-info {
     padding: 30px;
     border-radius: 5px;
-
 }
 
 /*SINGLE ANIMAL INFOS */
@@ -292,60 +294,32 @@ tbody tr a:first-child {
 }
 
 .animal-cart-info input[type=submit] {
-    border: unset;
-    background-color: #aba8a8;
-    color: white;
     margin-top: 20px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    width: 38.5%;
-}
-
-.animal-cart-info .btn-delete {
-    border: unset;
-    background-color: rgb(181, 25, 29);
-
-    color: white;
-    padding: 10px;
-    border-radius: 3px;
+    margin-bottom: 20px;
+    width: 50.5%;
 }
 
 /*FORM */
 
-input {
+input, select {
     margin: 0;
     padding: 10px;
 }
 
-/* button*/
+/* button */
 
 .btn {
     border: unset;
-    background-color: rgb(230, 199, 73);
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 8px 20px;
     border-radius: 3px;
     cursor: pointer;
-}
-
-.btn:hover {
-    background-color: rgb(207, 178, 45);
-}
-
-/*LINK */
-
-.link {
     text-align: center;
-    width: 100%;
-    padding: 10px 50px;
 }
-
-
 
 /*Main colors*/
 
 .color-yellow {
-    color:  rgb(230, 199, 73);
+    color: rgb(230, 199, 73);
 }
 
 /* Background */
@@ -354,6 +328,22 @@ input {
     background-color: rgb(230, 199, 73);
 }
 
-.bg-red{
+.bg-yellow:hover {
+    background-color: rgb(207, 178, 45);
+}
+
+.bg-red {
     background-color: rgb(181, 25, 29);
+}
+
+.bg-red:hover {
+    background-color: rgb(148, 22, 24);
+}
+
+.bg-grey {
+    background-color: #4f4f4f
+}
+
+.bg-grey:hover {
+    background-color: #696868
 }

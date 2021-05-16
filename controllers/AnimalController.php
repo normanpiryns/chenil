@@ -19,6 +19,8 @@ class AnimalController extends AbstractController {
      */
     public function show ($id) {
         $animal = $this->dao->getAnimalByIdFullData($id);
+        $raceDao = new RaceDao();
+        $races = $raceDao->getRaces();
         include ('../views/header.php');
         include ('../views/animals/one.php');
         include ('../views/footer.php');

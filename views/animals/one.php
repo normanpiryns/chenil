@@ -1,4 +1,3 @@
-
 <div class="single-person-animal page">
     <div class="content-page">
 
@@ -11,39 +10,48 @@
             <form action="/animals/update/<?= $animal->id ?>" method="POST">
                 <div class="group">
                     <label class="label" for="name">Nom</label>
-                    <input id="name" type="text" value="<?= $animal->name ?>">
+                    <input id="name" type="text" name="name" value="<?= $animal->name ?>">
                 </div>
 
                 <div class="group">
                     <label class="label" for="sex">Sexe</label>
-                    <input id="sex" type="text" value="<?= $animal->sex ?>">
+                    <input id="sex" type="text" name="sex" value="<?= $animal->sex ?>">
                 </div>
 
                 <div class="group">
                     <label class="label" for="birthDate">Date de naissance</label>
-                    <input id="birthDate" type="text" value="<?= $animal->birthDate ?>">
+                    <input id="birthDate" type="text" name="birthDate" value="<?= $animal->birthDate ?>">
                 </div>
 
                 <div class="group">
-                    <label class="label" for="race">Race</label>
-                    <input id="birthDate" type="text" value="<?= $animal->race->name ?>">
+                    <label class="label" for="fk_race">Race</label>
+                    <select name="fk_race" id="fk_race">
+                        <option value="<?= $animal->race->id ?>" selected="selected">
+                            <?= $animal->race->name ?>
+                        </option>
+                        <?php foreach ($races as $race) { ?>
+                            <?php if ($race->id != $animal->race->id) { ?>
+                                <option value="<?php echo $race->id; ?>"><?php echo $race->name; ?></option>
+                            <?php } ?>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="group">
                     <label class="label" for="sterilized">Stérilisé</label>
-                    <input id="sterilized" type="text" value="<?= $animal->sterilized ?>">
+                    <input id="sterilized" type="text" name="sterilized" value="<?= $animal->sterilized ?>">
                 </div>
 
                 <div class="group">
                     <label class="label" for="chip">Numéro de puce</label>
-                    <input id="chip" type="text" value="<?= $animal->chip ?>">
+                    <input id="chip" type="text" name="chip" value="<?= $animal->chip ?>">
                 </div>
 
-                <input class="bg-yellow" type="submit" value="Enregistrer">
+                <input class="btn bg-yellow" type="submit" value="Enregistrer">
             </form>
 
-            <div>
-                <a class="bg-red" href="/animals/delete/<?= $animal->__get('id'); ?>">Supprimer le chien</a>
+            <div style="margin-top: 20px">
+                <a class="btn bg-red" href="/animals/delete/<?= $animal->__get('id'); ?>">Supprimer le chien</a>
             </div>
         </div>
     </div>
@@ -55,7 +63,7 @@
         <h2>Séjour dans le chenil</h2>
 
         <div style="margin-top: 20px; margin-bottom: 20px">
-            <a href="" class="link " style="background-color: #4f4f4f">Nouveau séjour</a>
+            <a href="" class="btn bg-grey">Nouveau séjour</a>
         </div>
 
         <table class="table">
@@ -107,14 +115,13 @@
     </div>
 </div>
 
+
 <div class="single-person-animal page">
     <div class="content-page">
 
         <h2>Information du maitre</h2>
         <!--Master -->
         <div class="master-cart-info">
-
-
             <div class="group">
                 <span class="label">Prénom</span>
                 <span><?= $animal->person->firstName ?></span>
@@ -141,7 +148,7 @@
             </div>
 
             <div style="margin-top: 20px">
-                <a class="link bg-yellow" href="">Afficher</a>
+                <a class="btn bg-yellow" style="padding: 8px 150px" href="">Afficher</a>
             </div>
 
         </div>

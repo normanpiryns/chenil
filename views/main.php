@@ -13,7 +13,7 @@
                 <h2>Trouver un maître</h2>
                 <form action="">
                     <input type="text">
-                    <input class="btn" type="submit" value="Rechercher un maître">
+                    <input class="btn bg-yellow btn-search" type="submit" value="Rechercher un maître">
                 </form>
             </div>
 
@@ -22,7 +22,7 @@
                 <h2>Trouver un chien</h2>
                 <form action="">
                     <input type="text">
-                    <input class="btn" type="submit" value="Rechercher un chien">
+                    <input class="btn bg-yellow btn-search" type="submit" value="Rechercher un chien">
                 </form>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     <p><span class="label">Race :</span> <span>Berger Allemand</span></p>
                     <p><span class="label">Sexe :</span> <span>M</span></p>
                     <p class="sterilized"><span>Stérilizé</span></p>
-                    <p class="container-btn"><a class="btn link" href='/animals/one'>Détails</a></p>
+                    <p class="container-btn"><a class="btn bg-yellow" style="width: 100%; margin-top: 10px" href='/animals/one'>Détails</a></p>
                 </div>
             </div>
         </div>

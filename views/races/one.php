@@ -1,8 +1,30 @@
+<div class="single-person-animal page">
+    <div class="content-page">
 
-<form action="/races/update/<?= $race->id ?>" method="POST">
+        <h1><?= $race->name ?></h1>
 
-    <label for="name">Nom</label>
-    <input type="text" name="name" id="name" value="<?= $race->name ?>">
+        <!--    Race-->
+        <h2>Modifier la race sur l'animal</h2>
+        <div class="animal-cart-info">
 
-    <input type="submit" value="Envoyer">
-</form>
+            <form action="/races/update/<?= $race->id ?>" method="POST">
+                <div class="group">
+                    <label class="label" for="name">Nom</label>
+                    <input id="name" type="text" name="name" value="<?= $race->name ?>">
+                </div>
+
+                <div class="group">
+                    <label class="label" for="species">Espèce</label>
+                    <p>AJOUTER L4SPECE</p>
+                </div>
+
+                <input class="bg-yellow" type="submit" value="Enregistrer">
+            </form>
+
+            <div>
+                <a class="bg-red" href="/races/delete/<?= $race->__get('id'); ?>">Supprimer la race</a>
+            </div>
+        </div>
+    </div>
+</div>
+

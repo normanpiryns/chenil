@@ -13,7 +13,7 @@
     </div>
 
     <ul>
-        <li><a href="home">Rechercher</a></li>
+        <li><a href="/home">Rechercher</a></li>
         <li><a href="/persons/index">Maître</a></li>
         <li><a href="/animals/index">Animal</a></li>
         <li><a href="/races/index">Races</a></li>
