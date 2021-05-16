@@ -62,6 +62,8 @@ class AnimalDao extends AbstractDao
         }
     }
 
+
+
     /**
      * Récupère la personne à qui appartient l'animal
      * @param $id
@@ -212,7 +214,7 @@ class AnimalDao extends AbstractDao
      */
     public function deepCreate($result)
     {
-        // get Owner
+        // get owner
         $ownerId = $result['fk_person']; // owner id
         $personDao = new PersonDao();
         $person = $personDao->getPersonById($ownerId); // get animal owner
@@ -221,6 +223,11 @@ class AnimalDao extends AbstractDao
         $raceId = $result['fk_race']; // race id
         $raceDao = new RaceDao();
         $race = $raceDao->getRaceById($raceId); // get animal race
+
+        // get stays
+//        $raceId = $result['fk_race']; // race id
+//        $stayDao = new StayDao();
+//        $stay = $stayDao->($raceId); // get animal race
 
         return new Animal(
             $result['id'],
