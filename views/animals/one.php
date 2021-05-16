@@ -73,8 +73,9 @@
         <h2>Séjour dans le chenil</h2>
 
         <div style="margin-top: 20px; margin-bottom: 20px">
-            <a href="" class="btn bg-grey">Nouveau séjour</a>
+            <a href="/stays/create" class="btn bg-grey">Nouveau séjour</a>
         </div>
+        <?php $stays = new StayDao(); ?>
 
         <table class="table">
             <!--  Head-->
@@ -83,41 +84,24 @@
                 <th>#</th>
                 <th>Début</th>
                 <th>Fin</th>
+                <th>Actions<th>
             </tr>
             </thead>
 
             <!--  Body-->
             <tbody>
+            <?php $counter = 1; ?>
+            <?php foreach($stays->getStaysByFkAnimal($animal->__get('id')) as $stay): ?>
             <tr>
-                <td>1</td>
-                <td>8 octobre 2019</td>
-                <td>21 mai 2020</td>
+                <td><?= $counter++ ?></td>
+                <td><?= $stay->dateBegin ?></td>
+                <td><?= $stay->dateEnd ?></td>
+                <td>
+                    <a class="btn bg-yellow" href="/stays/show/<?= $stay->__get('id'); ?>">Modifier</a>
+                    <a class="btn bg-red" href="/stays/delete/<?= $stay->__get('id'); ?>">Supprimer</a>
+                </td>
             </tr>
-
-            <tr>
-                <td>1</td>
-                <td>8 octobre 2019</td>
-                <td>21 mai 2020</td>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>8 octobre 2019</td>
-                <td>21 mai 2020</td>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>8 octobre 2019</td>
-                <td>21 mai 2020</td>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>8 octobre 2019</td>
-                <td>21 mai 2020</td>
-            </tr>
-
+            <?php endforeach; ?>
             </tbody>
         </table>
 

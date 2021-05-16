@@ -45,4 +45,19 @@ class StayController extends AbstractController {
         include('../views/species/form.php');
     }
 
+    
+    public function create_form () {
+        $animalDao = new AnimalDao();
+        $animals = $animalDao->getAnimals();
+        
+        include ('../views/header.php');
+        include ('../views/stays/create_form.php');
+        include ('../views/footer.php');
+    }
+
+    public function create ($id, $data) {
+        $this->dao->store($data);
+        $this->index();
+    }
+
 }

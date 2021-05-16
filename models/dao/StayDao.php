@@ -36,6 +36,19 @@ class StayDao extends AbstractDao
         }
     }
 
+    function getStaysByFkAnimal($fk_animal){
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE fk_animal = ?" );
+            $statement->execute([
+                $fk_animal
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
     // create stay
     public function store($stay)
     {
@@ -113,6 +126,8 @@ class StayDao extends AbstractDao
         }
         return $productList;
     }
+
+    
 
     //Instantiate a stay
     function create($result)
