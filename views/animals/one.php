@@ -19,12 +19,23 @@ $i = 0;
 
                 <div class="group">
                     <label class="label" for="sex">Sexe</label>
-                    <input id="sex" type="text" name="sex" value="<?= $animal->sex ?>">
+                    <select name="sex" id="sex">
+                        <option value="<?= $animal->sex ?>" selected="selected">
+                            <?= $animal->sex ?>
+                        </option>
+                            <?php if ($animal->sex == "M") { ?>
+                                <option value="F">F</option>
+                            <?php } ?>
+
+                        <?php if ($animal->sex == "F") { ?>
+                            <option value="M">M</option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="group">
                     <label class="label" for="birthDate">Date de naissance</label>
-                    <input id="birthDate" type="text" name="birthDate" value="<?= $animal->birthDate ?>">
+                    <input id="birthDate" type="date" name="birthDate" value="<?= $animal->birthDate ?>">
                 </div>
 
                 <div class="group">

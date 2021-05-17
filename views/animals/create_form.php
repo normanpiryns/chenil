@@ -18,12 +18,15 @@
 
                 <div class="group">
                     <label class="label" for="sex">Sexe</label>
-                    <input id="sex" name="sex" type="text">
+                    <select name="sex" id="sex">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                    </select>
                 </div>
 
                 <div class="group">
                     <label class="label" for="birthDate">Date de naissance</label>
-                    <input id="birthDate" name="birthDate" type="text">
+                    <input id="birthDate" name="birthDate" type="date">
                 </div>
 
                 <div class="group">
