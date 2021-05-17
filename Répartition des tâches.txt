@@ -4,7 +4,7 @@ Norman Piryns - CRUD Person, CRUD Species, CRUD Stay, Database
 
 BONUS: 
 
-- Utilisation de requêtes ajax pour gérer certaines actions au choix
+- Utilisation de requêtes ajax pour gérer certaines actions au choix (Le search)
 - Mise en page soignée et cohérente
 - Gestion des erreurs, envoyez un message cohérent à l’utilisateur si une erreur PDO
-survient, si une erreur du formulaire survient
+survient, si une erreur du formulaire survient (Ajout d'animal)
