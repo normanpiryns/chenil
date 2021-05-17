@@ -15,15 +15,8 @@
                 </div>
 
                 
-
-                <div class="group">
-                    <label class="label" for="fk_animal">Nom de l'animal</label>
-                    <select name="fk_animal" id="fk_animal">
-                        <?php foreach ($animals as $animal): ?>
-                            <option value="<?= $animal->__get('id'); ?>"><?= $animal->__get('name'); ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                
+                <input type='hidden' name="fk_animal" value="<?= $id ?>">
 
                 <input class="btn bg-yellow" type="submit" value="Enregistrer">
             </form>

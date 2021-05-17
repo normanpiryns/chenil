@@ -50,14 +50,15 @@ class StayDao extends AbstractDao
     }
 
     // create stay
-    public function store($stay)
+    public function store($data)
     {
+        
         if (empty($data['dateBegin']) || empty($data['dateEnd']) || empty($data['fk_animal'])) {
-
+            
             return false;
         }
 
-        $animal = $this->create(
+        $stay = $this->create(
             [
                 'id' => 0,
                 'dateBegin' => $data['dateBegin'],
@@ -66,13 +67,16 @@ class StayDao extends AbstractDao
             ]
         );
 
-        if ($stays) {
+        if ($stay) {
             try {
                 $statement = $this->connection->prepare(
                     "INSERT INTO {$this->table} (dateBegin, dateEnd, fk_animal) VALUES (?, ?, ?)"
                 );
                 $statement->execute([
-                    htmlspecialchars($stays->__get('name'))
+                    htmlspecialchars($stay->__get('dateBegin')),
+                    htmlspecialchars($stay->__get('dateEnd')),
+                    htmlspecialchars($stay->__get('fk_animal'))
+                    
                 ]);
                 return true;
             } catch (PDOException $e) {

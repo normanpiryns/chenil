@@ -72,8 +72,9 @@
 
         <h2>Séjour dans le chenil</h2>
 
+
         <div style="margin-top: 20px; margin-bottom: 20px">
-            <a href="/stays/create" class="btn bg-grey">Nouveau séjour</a>
+            <a href="/stays/create_form/<?= $animal->id ?>" class="btn bg-grey">Nouveau séjour</a>
         </div>
         <?php $stays = new StayDao(); ?>
 
@@ -84,7 +85,7 @@
                 <th>#</th>
                 <th>Début</th>
                 <th>Fin</th>
-                <th>Actions<th>
+                <th>Actions</th>
             </tr>
             </thead>
 

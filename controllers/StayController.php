@@ -31,7 +31,7 @@ class StayController extends AbstractController {
         $this->dao->deleteStay($id);
         $stays = $this->dao->getStays();
         include ('../views/header.php');
-        include ('../views/stays/list.php');
+        header('Location: /animals/show/'.$data["fk_animal"]);
         include ('../views/footer.php');
     }
 
@@ -46,7 +46,7 @@ class StayController extends AbstractController {
     }
 
     
-    public function create_form () {
+    public function create_form ($id) {
         $animalDao = new AnimalDao();
         $animals = $animalDao->getAnimals();
         
@@ -56,8 +56,9 @@ class StayController extends AbstractController {
     }
 
     public function create ($id, $data) {
+        
         $this->dao->store($data);
-        $this->index();
+        header('Location: /animals/show/'.$data["fk_animal"]);
     }
 
 }
