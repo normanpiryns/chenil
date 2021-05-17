@@ -158,7 +158,7 @@ $(document).ready(function () {
 
         })
             .done(function () {
-                window.location = 'http://chenil.vhost/persons/show/' + fkPerson; // redirection
+                window.location = 'http://chenil.com/persons/show/' + fkPerson; // redirection
 
             })
             .fail(function (error) {
