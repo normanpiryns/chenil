@@ -1,0 +1,3 @@
+Emile Cyimena - CRUD Animal, CRUD Race, CRUD Vaccine, Front-end, Search (AJAX)
+
+Norman Piryns - CRUD Person, CRUD Species, CRUD Stay, Database
