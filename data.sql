@@ -65,5 +65,28 @@ INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race)
 INSERT INTO animals (name, chip, sex, sterilized, birthDate, fk_person, fk_race) VALUES ('Casey', '24f3f0d9-9690-8', 'F', false, '2020-07-10', 5, 10);
 
 
+
+
+
+
+-- Add vaccines_animals data
+
+INSERT INTO `animals_vaccines` ( `fk_animal`, `fk_vaccine`) VALUES
+(1,  1),
+(1,  2),
+(1,  3),
+(2,  4),
+(2, 5),
+(2, 6),
+(3, 1),
+(3, 3),
+(3, 6),
+(3, 2);
+
 -- Stays
+
+insert into stays(dateBegin, dateEnd, fk_animal) values ("2015-04-24", "2020-05-19",1)
+
+
+
 
