@@ -16,9 +16,10 @@ Utiliser le fichier "chenil.sql"
 
 Le screenshot de notre tableau jira est le fichier "tableau_jira.jpg"
 
-
 Lors de la création d'un chien on vérifie le formulaire avec javascript
 On effectue des recherches de maitre ou d'animaux dans la page d'accueil avec AJAX
 
+Le nom du virtual host est : "https://chenil.vhost" obligatoire car après la création d'un animal avec javascript
+ on redirige vers une page qui ne fonctionnera pas si le virtual host n'est pas celui mentionné.
 
 Pour des questions n'hésitez pas à nous contacter.
