@@ -8,3 +8,9 @@ BONUS:
 - Mise en page soignée et cohérente
 - Gestion des erreurs, envoyez un message cohérent à l’utilisateur si une erreur PDO
 survient, si une erreur du formulaire survient (Ajout d'animal)
+
+
+Pour générer la base de donnée et une liste d'insert pour les tables : 
+Utiliser le fichier "chenil.sql"
+
+Le screenshot de notre tableau jira est le fichier "tableau_jira.jpg" 
