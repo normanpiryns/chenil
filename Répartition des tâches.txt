@@ -4,7 +4,8 @@ Norman Piryns - CRUD Person, CRUD Species, CRUD Stay, Database
 
 BONUS: 
 
-- Utilisation de requêtes ajax pour gérer certaines actions au choix (Le search)
+- Utilisation de requêtes ajax pour gérer certaines actions au choix (Le search) :
+
 - Mise en page soignée et cohérente
 - Gestion des erreurs, envoyez un message cohérent à l’utilisateur si une erreur PDO
 survient, si une erreur du formulaire survient (Ajout d'animal)
@@ -13,4 +14,11 @@ survient, si une erreur du formulaire survient (Ajout d'animal)
 Pour générer la base de donnée et une liste d'insert pour les tables : 
 Utiliser le fichier "chenil.sql"
 
-Le screenshot de notre tableau jira est le fichier "tableau_jira.jpg" 
+Le screenshot de notre tableau jira est le fichier "tableau_jira.jpg"
+
+
+Lors de la création d'un chien on vérifie le formulaire avec javascript
+On effectue des recherches de maitre ou d'animaux dans la page d'accueil avec AJAX
+
+
+Pour des questions n'hésitez pas à nous contacter.
