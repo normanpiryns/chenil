@@ -21,6 +21,9 @@ class AnimalController extends AbstractController {
         $animal = $this->dao->getAnimalByIdFullData($id);
         $raceDao = new RaceDao();
         $races = $raceDao->getRaces(); // on récupère la liste des races dans le cas ou l'utilisateur voudrait modifier la race du chien
+
+        $vaccineDao = new VaccineDao();
+        $vaccines = $vaccineDao->getVaccines();
         include ('../views/header.php');
         include ('../views/animals/one.php');
         include ('../views/footer.php');
@@ -32,6 +35,8 @@ class AnimalController extends AbstractController {
      * @param $data
      */
     public function create ($id, $data) {
+//        $fkPerson = $_GET['fk_person'];
+//        $data['fk_person'] = $fkPerson; // on ajoute la personne id dans le data qui contient les données de l'animal
         $this->dao->store($data);
         $this->index();
     }
@@ -40,6 +45,8 @@ class AnimalController extends AbstractController {
      * affiche le formulaire d'ajout d'un animal
      */
     public function create_form () {
+
+        $fkPerson = $_GET['fk_person']; // id de la personne qui possède l'animal
         $raceDao = new RaceDao();
         $races = $raceDao->getRaces();
         include ('../views/header.php');

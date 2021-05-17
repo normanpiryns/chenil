@@ -122,9 +122,6 @@ class AnimalDao extends AbstractDao
      */
     public function store($data)
     {
-        // todo on ne doit enregistrer l'animal que pour une personne
-        $data['fk_person'] = '1';
-
         if (empty($data['name']) ||
             empty($data['chip']) ||
             empty($data['sex']) ||
@@ -244,6 +241,8 @@ class AnimalDao extends AbstractDao
      */
     public function deepCreate($result)
     {
+        $animalId = $result['id']; // identifiant de l'animal
+
         // get owner
         $ownerId = $result['fk_person']; // owner id
         $personDao = new PersonDao();
@@ -255,9 +254,12 @@ class AnimalDao extends AbstractDao
         $race = $raceDao->getRaceById($raceId); // get animal race
 
         // get stays
-//        $raceId = $result['fk_race']; // race id
-//        $stayDao = new StayDao();
-//        $stay = $stayDao->($raceId); // get animal race
+        $stayDao = new StayDao();
+        $stays = $stayDao->getStaysByAnimalId($animalId); // get animal race
+
+        // get vaccines
+        $vaccineDao = new VaccineDao();
+        $vaccines = $vaccineDao->getVaccinesByAnimalId($animalId); // get animal race
 
         return new Animal(
             $result['id'],
@@ -267,7 +269,9 @@ class AnimalDao extends AbstractDao
             $result['sterilized'],
             $result['birthDate'],
             $person,
-            $race
+            $race,
+            $stays,
+            $vaccines
         );
     }
 

@@ -36,11 +36,11 @@ class StayDao extends AbstractDao
         }
     }
 
-    function getStaysByFkAnimal($fk_animal){
+    function getStaysByAnimalId($id){
         try {
             $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE fk_animal = ?" );
             $statement->execute([
-                $fk_animal
+                $id
             ]);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $this->createAll($result);

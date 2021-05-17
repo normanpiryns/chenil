@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="group">
-                    <label class="label" for="description">Nom du vaccin</label>
+                    <label class="label" for="description">Description du vaccin</label>
                     <textarea name="description" id="description" cols="30" rows="5"></textarea>
                 </div>
 

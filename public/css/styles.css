@@ -70,6 +70,10 @@ a {
     color: #c3c1c1;
 }
 
+#header ul li a:hover {
+    color: #7c7a7a;
+}
+
 /* HOME */
 
 #home .content-page {
@@ -176,6 +180,10 @@ a {
     color: white;
 }
 
+#footer a:hover {
+    color: rgb(230, 199, 73)
+}
+
 #footer .credit {
     margin-top: 15px;
     margin-bottom: 0;
@@ -246,7 +254,6 @@ a {
 
 table td {
     text-align: center;
-
 }
 
 thead th {
@@ -258,8 +265,6 @@ thead th {
 tbody tr {
     text-align: center;
     background-color: rgb(157, 152, 152);
-
-    border: solid red;
 }
 
 tr th {
@@ -378,6 +383,6 @@ input, select, textarea {
 
 /* Extra */
 
-.inl-bl{
+.inl-bl {
     display: inline-block;
 }

@@ -1,6 +1,7 @@
 <?php
 
-class VaccineDao extends AbstractDao {
+class VaccineDao extends AbstractDao
+{
 
     public function __construct()
     {
@@ -34,16 +35,31 @@ class VaccineDao extends AbstractDao {
         }
     }
 
+    public function getVaccinesByAnimalId($id)
+    {
+        try {
+            $statement = $this->connection->prepare(
+                "SELECT v.id, v.name, v.description FROM {$this->table} v INNER JOIN animals_vaccines av ON av.fk_vaccine = v.id WHERE av.fk_animal = ? ");
+            $statement->execute([
+                $id
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $this->createAll($result);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+
     public function addVaccine($data)
     {
-        if(empty($data['name']) || empty($data['description'])) {
+        if (empty($data['name']) || empty($data['description'])) {
             return false;
         }
 
         $vaccine = $this->create(
             [
-                'id'=> 0,
-                'name'=> $data['name'],
+                'id' => 0,
+                'name' => $data['name'],
                 'description' => $data['description']
             ]
         );
@@ -58,12 +74,34 @@ class VaccineDao extends AbstractDao {
                     htmlspecialchars($vaccine->__get('description'))
                 ]);
                 return true;
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 print $e->getMessage();
                 return false;
             }
         }
     }
+
+    public function addVaccineToAnimal($data)
+    {
+        if (empty($data['fk_animal']) || empty($data['fk_vaccine'])) {
+            return false;
+        }
+
+        try {
+            $statement = $this->connection->prepare(
+                "INSERT INTO animals_vaccines (fk_animal, fk_vaccine) VALUES (?, ?)"
+            );
+            $statement->execute([
+                htmlspecialchars($data['fk_animal']),
+                htmlspecialchars($data['fk_vaccine'])
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            print $e->getMessage();
+            return false;
+        }
+    }
+
 
     public function updateVaccine($id, $data)
     {

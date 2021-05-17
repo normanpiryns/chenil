@@ -4,7 +4,13 @@
         <h1 style="margin-bottom: 20px">Ajouter un animal</h1>
 
         <div class="animal-cart-info">
-            <form action="/animals/create" method="POST">
+            <form id="form-add-animal" name="form-add-animal" action="/animals/create" method="POST">
+
+                <div class="group" style="display: none">
+                    <input id="fk_person" name="fk_person" type="text" value="<?= $fkPerson; ?>">
+                </div>
+
+
                 <div class="group">
                     <label class="label" for="name">Nom</label>
                     <input id="name" name="name" type="text">
@@ -42,8 +48,10 @@
                     <input id="chip" name="chip" type="text">
                 </div>
 
-                <input type="submit" value="Enregistrer le chien">
+                <input class="btn bg-yellow" type="submit" value="Enregistrer le chien">
             </form>
+
+            <p id="form-error" style="display: none; color: red">Veuillez encoder tous les champs </p>
 
         </div>
     </div>

@@ -21,13 +21,20 @@ class VaccineController extends AbstractController {
     }
 
     /**
-     * Appelle la méthode du Dao permettant l'enregistrement d'un vaccin dans la DB
+     * Appelle la méthode du Dao permettant l'enregistrement d'un nouveau vaccin dans la DB
      * @param $id
      * @param $data
      */
     public function create ($id, $data) {
         $this->dao->addVaccine($data);
         $this->index();
+    }
+
+    public function addVaccineToAnimal($id, $data) {
+        $this->dao->addVaccineToAnimal($data);
+        // redirection à l'animal
+        $animalController = new AnimalController();
+        $animalController->show($data['fk_animal']);
     }
 
     public function show ($id) {

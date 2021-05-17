@@ -29,10 +29,9 @@ class StayController extends AbstractController {
 
     public function delete ($id) {
         $this->dao->deleteStay($id);
-        $stays = $this->dao->getStays();
-        include ('../views/header.php');
-        header('Location: /animals/show/'.$data["fk_animal"]);
-        include ('../views/footer.php');
+        // on redirige vers l'animal
+        $animalController = new AnimalController();
+        $animalController->show($_GET['fk_animal']);
     }
 
     public function show ($id) {

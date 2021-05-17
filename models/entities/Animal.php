@@ -10,9 +10,10 @@ class Animal
     private $birthDate;
     private $person;
     private $race;
-    private $stay;
+    private $stays;
+    private $vaccines;
 
-    public function __construct($id, $name, $chip, $sex, $sterilized, $birthDate, $person = false, $race = false, $stay = false)
+    public function __construct($id, $name, $chip, $sex, $sterilized, $birthDate, $person = false, $race = false, $stays = false, $vaccines = false)
     {
         $this->id = $id;
         $this->name = $name;
@@ -22,7 +23,8 @@ class Animal
         $this->birthDate = $birthDate;
         $this->person = $person;
         $this->race = $race;
-        $this->stay = $stay;
+        $this->stays = $stays;
+        $this->vaccines = $vaccines;
     }
 
     public function __get($prop)

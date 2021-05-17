@@ -49,7 +49,7 @@
 
 
         <div style="margin-top: 40px;">
-            <a class="btn bg-yellow" href="/animals/create_form/">Ajouter un nouveau chien</a>
+            <a class="btn bg-yellow" href="/animals/create_form/?fk_person=<?= $person->__get('id'); ?>">Ajouter un nouveau chien</a>
         </div>
 
     </div>

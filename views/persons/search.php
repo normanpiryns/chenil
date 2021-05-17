@@ -1,7 +1,7 @@
 <?php foreach ($persons as $person): ?>
     <div id="master-presentation" class="animal-presentation" style="margin-bottom: 20px">
         <div class="wrapper-image">
-            <img src="/images/person.jpg" alt="">
+            <img  src="/images/person.jpg" alt="">
 
         </div>
         <div class="wrapper-text">

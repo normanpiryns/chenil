@@ -17,7 +17,7 @@
             </form>
 
             <div>
-                <a class="btn bg-red" href="/races/delete/<?= $race->__get('id'); ?>">Supprimer la race</a>
+                <a class="btn bg-red" href="/species/delete/<?= $species->__get('id'); ?>">Supprimer l'espèce</a>
             </div>
         </div>
     </div>
