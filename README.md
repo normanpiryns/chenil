@@ -4,8 +4,8 @@ chenil is an app managing a kennel - dogs, vaccines, owners, races, species and 
 
 # How to setup the database
 
-1. Import the chenil.sql
-2. Import the data.sql
+1. Import the database with chenil.sql
+2. Populate the tables with data.sql
 
 # Preview:
 
