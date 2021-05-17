@@ -86,7 +86,7 @@ class StayDao extends AbstractDao
         }
     }
 
-    public function updateStay($species)
+    public function updateStay($data)
     {
         if (empty($data['id'])) {
             return false;
@@ -94,11 +94,11 @@ class StayDao extends AbstractDao
 
         try {
             $statement = $this->connection->prepare(
-                "UPDATE {$this->table} SET dateBegin = ?, dateEnd = ?, fk_animal = ? WHERE id = ?");
+                "UPDATE {$this->table} SET dateBegin = ?, dateEnd = ? WHERE id = ?");
             $statement->execute([
                 htmlspecialchars($data['dateBegin']),
                 htmlspecialchars($data['dateEnd']),
-                htmlspecialchars($data['fk_animal'])
+                htmlspecialchars($data['id'])
             ]);
         } catch (PDOException $e) {
             print $e->getMessage();

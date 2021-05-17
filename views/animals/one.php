@@ -150,6 +150,7 @@ $i = 0;
     </div>
 </div>
 
+<!--SEJOUR-->
 <div class="single-person-animal page">
     <div class="content-page">
 
@@ -178,7 +179,7 @@ $i = 0;
                     <td><?= $stay->dateBegin; ?></td>
                     <td><?= $stay->dateEnd; ?></td>
                     <td>
-                        <a class="btn bg-yellow" href="/stays/show/<?= $stay->__get('id'); ?>">Modifier</a>
+                        <a class="btn bg-yellow" href="/stays/show/<?= $stay->__get('id'); ?>?fk_animal=<?= $animal->id; ?>">Modifier</a>
                         <a class="btn bg-red" href="/stays/delete/<?= $stay->__get('id'); ?>?fk_animal=<?= $animal->id; ?>">Supprimer</a>
                     </td>
                 </tr>
