@@ -6,3 +6,5 @@ BONUS:
 
 - Utilisation de requêtes ajax pour gérer certaines actions au choix
 - Mise en page soignée et cohérente
+- Gestion des erreurs, envoyez un message cohérent à l’utilisateur si une erreur PDO
+survient, si une erreur du formulaire survient
