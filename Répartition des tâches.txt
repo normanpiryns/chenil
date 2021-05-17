@@ -1,3 +1,8 @@
 Emile Cyimena - CRUD Animal, CRUD Race, CRUD Vaccine, Front-end, Search (AJAX)
 
 Norman Piryns - CRUD Person, CRUD Species, CRUD Stay, Database
+
+BONUS: 
+
+- Utilisation de requêtes ajax pour gérer certaines actions au choix
+- Mise en page soignée et cohérente
